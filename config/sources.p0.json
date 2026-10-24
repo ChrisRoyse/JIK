@@ -1,0 +1,119 @@
+{
+  "census_version": "p0-v1",
+  "window_end_utc": "2026-10-14",
+  "sources": [
+    {
+      "id": "fineweb-edu-sample-10BT",
+      "kind": "prose-web",
+      "access": {"type": "hf-tree", "repo": "HuggingFaceFW/fineweb-edu", "revision": "main", "path": "sample/10BT"},
+      "licence": "ODC-By 1.0 (dataset card); underlying Common Crawl terms of use",
+      "consent": "Common Crawl robots.txt at crawl time; FineWeb applied URL blocklists; no per-document consent signal retained",
+      "declared": {"rows": 9670000, "tokens_gpt2": 10000000000, "note": "HF card: 9.67M rows, ~10B gpt2 tokens"},
+      "fields": {"explicit": ["id", "dump", "url", "date", "file_path", "language", "language_score", "token_count", "score", "int_score"], "latent": ["text"]},
+      "clocks": {"date": "coordinate (crawl fetch time, provider-declared)"},
+      "anchors": ["A5"],
+      "role": "prose bulk; edu score is a candidate quality-rater lens"
+    },
+    {
+      "id": "nemotron-cc-high-actual-slice",
+      "kind": "prose-web",
+      "access": {"type": "cc-pathlist", "pathlist": "https://data.commoncrawl.org/contrib/Nemotron/Nemotron-CC/data-jsonl.paths.gz", "base": "https://data.commoncrawl.org/", "select": {"bucket": "quality=high/kind=actual/kind2=actual", "first_n": 10}},
+      "licence": "Common Crawl terms of use (Nemotron-CC index page); to be read before redistribution of derived atoms",
+      "consent": "Common Crawl robots.txt at crawl time",
+      "declared": {"files_in_bucket": 2755, "tokens_bucket": 1100000000000, "note": "paper: HQ subset ~1.1T tokens; our 2026-10-15 sampling: mean 369 MB per file"},
+      "fields": {"explicit": ["warc_record_id", "url", "language"], "latent": ["text"]},
+      "clocks": {"crawl": "coordinate (CC-MAIN snapshot in the file name)"},
+      "anchors": ["A5"],
+      "role": "prose bulk slice"
+    },
+    {
+      "id": "nemotron-cc-high-synthetic-twins",
+      "kind": "prose-synthetic",
+      "access": {"type": "cc-pathlist", "pathlist": "https://data.commoncrawl.org/contrib/Nemotron/Nemotron-CC/data-jsonl.paths.gz", "base": "https://data.commoncrawl.org/", "select": {"bucket": "quality=high/kind=synthetic/kind2=wrap_medium", "first_n": 3}},
+      "licence": "Common Crawl terms of use (Nemotron-CC index page)",
+      "consent": "derived from Common Crawl text by NVIDIA rephrasing models",
+      "declared": {"files_in_bucket": 2016, "note": "synthetic rephrasings: the unverified rewrites Stage 8's guard grades"},
+      "fields": {"explicit": ["warc_record_id", "url", "language"], "latent": ["text"]},
+      "clocks": {},
+      "anchors": [],
+      "role": "Stage 8 drift experiment; never a base atom"
+    },
+    {
+      "id": "wikipedia-en-20231101",
+      "kind": "prose-encyclopaedic",
+      "access": {"type": "hf-tree", "repo": "wikimedia/wikipedia", "revision": "main", "path": "20231101.en"},
+      "licence": "CC-BY-SA 4.0 and GFDL",
+      "consent": "public wiki; licence requires attribution and share-alike on derived text",
+      "declared": {"note": "HF card: 20231101.en, ~6.4M articles"},
+      "fields": {"explicit": ["id", "url", "title"], "latent": ["text"]},
+      "clocks": {"dump": "revision (2023-11-01 dump)"},
+      "anchors": ["A2", "A4"],
+      "role": "A2 via Wikidata joins; A4 via citations"
+    },
+    {
+      "id": "opencodeinstruct",
+      "kind": "code-with-tests",
+      "access": {"type": "hf-tree", "repo": "nvidia/OpenCodeInstruct", "revision": "main", "path": ""},
+      "licence": "to be read back from the dataset card on listing (expected CC-BY-4.0)",
+      "consent": "synthetic + curated; provider licence governs",
+      "declared": {"note": "expected ~5M samples with unit tests; sizes read back on listing"},
+      "fields": {"explicit": ["id", "domain", "generation_algorithm", "llm_judgement", "unit_tests"], "latent": ["input", "output"]},
+      "clocks": {},
+      "anchors": ["A1"],
+      "role": "execution anchors (tests run by us; validity audited separately)"
+    },
+    {
+      "id": "gdelt-events-90d",
+      "kind": "events-structured",
+      "access": {"type": "gdelt-masterfilelist", "url": "http://data.gdeltproject.org/gdeltv2/masterfilelist.txt", "base_select": "export", "days": 90},
+      "licence": "GDELT terms of use (free, attribution)",
+      "consent": "public project data",
+      "declared": {"events_per_day_approx": 125000},
+      "fields": {"explicit": ["GlobalEventID", "Day", "Actor1Code", "Actor2Code", "EventCode", "GoldsteinScale", "NumMentions", "AvgTone", "ActionGeo_Lat", "ActionGeo_Long", "DATEADDED", "SOURCEURL"], "latent": []},
+      "clocks": {"Day": "coordinate (event date)", "DATEADDED": "receipt (GDELT coding time)"},
+      "anchors": ["A3", "A4"],
+      "role": "temporal realisation and cross-source agreement"
+    },
+    {
+      "id": "wikidata5m",
+      "kind": "graph-triples",
+      "access": {"type": "http-head", "urls": ["https://www.dropbox.com/s/6sbhm0rwo4l73jq/wikidata5m_transductive.tar.gz?dl=1", "https://www.dropbox.com/s/7jp4ib8zo3i6m10/wikidata5m_text.txt.gz?dl=1", "https://www.dropbox.com/s/lnbhc8yuhit4wm5/wikidata5m_alias.tar.gz?dl=1"]},
+      "licence": "CC-BY-SA (Wikidata CC0 statements; Wikipedia abstracts CC-BY-SA)",
+      "consent": "public",
+      "declared": {"entities": 4594485, "relations": 822, "triples": 20624575, "note": "KEPLER release; URLs may be stale, recorded as discovery_complete=false if unreachable"},
+      "fields": {"explicit": ["entity_id", "relation_id"], "latent": ["abstract"]},
+      "clocks": {},
+      "anchors": ["A2"],
+      "role": "text to triple joins"
+    },
+    {
+      "id": "cuyahoga-eighth-district",
+      "training_allowed": false,
+      "kind": "prose-legal-measured",
+      "access": {"type": "by-host",
+                 "aiwonder": {"type": "aiwonder-local", "path": "/zfs/archive/calyx/freelaw-cuyahoga"},
+                 "cabdru": {"type": "manifest-copy", "path": "D:/MNLMData/raw/cuyahoga-eighth-district/manifest.aiwonder.jsonl", "origin": {"host": "aiwonder", "root": "/zfs/archive/mnlm", "census_version": "p0-v1"}}},
+      "licence": "CourtListener / Free Law Project (public domain opinions; bulk terms)",
+      "consent": "public records",
+      "declared": {"opinions": 12596, "canonical_bytes": 285232634, "note": "Royse 2026d: measured kernel 1,298 members (10.3%), recall 1.0"},
+      "fields": {"explicit": ["id", "date_filed", "court", "citations"], "latent": ["text"]},
+      "clocks": {"date_filed": "coordinate"},
+      "anchors": ["A6"],
+      "role": "excluded from MNLM training by operator 2026-10-17; historical audit evidence only"
+    },
+    {
+      "id": "poly-sealed-structured",
+      "kind": "structured-records",
+      "access": {"type": "by-host",
+                 "cabdru": {"type": "poly-sealed-store", "path": "C:/code/poly/var/poly/native-reset-v1/state/production-source-store", "note": "Poly #1356: one listing per source, one manifest.json per generation; payloads never opened here"},
+                 "aiwonder": {"type": "manifest-copy", "path": "/zfs/archive/mnlm/raw/poly-sealed-structured/manifest.cabdru.jsonl", "origin": {"host": "cabdru", "root": "D:/MNLMData", "census_version": "p0-v1"}}},
+      "licence": "per source (public financial and market data); Poly retention rules",
+      "consent": "public APIs; credentialed sources excluded",
+      "declared": {"sources": 53, "bytes": 40750000000, "records": 58300000},
+      "fields": {"explicit": ["all"], "latent": ["descriptions"]},
+      "clocks": {"receipt": "receipt-qualified versions", "coordinate": "per source"},
+      "anchors": ["A2", "A3"],
+      "role": "structured truth and settled outcomes"
+    }
+  ]
+}

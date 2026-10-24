@@ -1,0 +1,328 @@
+{
+  "census_version": "candidates-v1",
+  "window_end_utc": "2026-10-15",
+  "note": "Stage 0 census items added by operator direction 2026-10-15 (issue #10, fifth message: the model must speak and talk, write code and use tools; issue #3 comment of 16:00 UTC). Candidates only: whether a speech corpus enters P0 or P1 and which tool-use corpus is admitted are operator decisions recorded in #10 and #3. Licence of record is read from the distributed bytes at acquisition, never from this file; the strings below quote the primary page read on 2026-10-15 (catalogue: evidence/fsv/3/census-candidates-speech-tooluse-20261015.md).",
+  "sources": [
+    {
+      "id": "web-audio-mpj",
+      "kind": "speech-scripture",
+      "access": {
+        "type": "html-links",
+        "pages": [
+          "https://ebible.org/webaudio/mp3.htm",
+          "https://ebible.org/webaudio/ogg.htm"
+        ],
+        "suffixes": [
+          ".mp3",
+          ".ogg"
+        ],
+        "pause_s": 0.5
+      },
+      "licence": "Public domain recording: 'The above audio recordings of the World English Bible recorded by Michael Paul Johnson are in the Public Domain.' 'They are not copyrighted.' https://ebible.org/webaudio/ (read 2026-10-15); text = World English Bible (public domain), already sealed in scripture-v1 as eng-web",
+      "consent": "single reciter who published the recordings as public domain; no third-party speakers",
+      "declared": {
+        "files_linked": 186,
+        "coverage": "partial: Psalms 1-2, Matthew, Mark 1-7, John, Romans 1-5, Galatians-Philemon, Hebrews, James-Jude (read from the page)",
+        "hours": null,
+        "sample_rate": null
+      },
+      "fields": {
+        "explicit": [
+          "book",
+          "chapter",
+          "reciter",
+          "format"
+        ],
+        "latent": [
+          "audio"
+        ]
+      },
+      "clocks": {},
+      "anchors": [
+        "A2",
+        "A4"
+      ],
+      "role": "speech aligned to text the model already holds (verse index of Stage 2); the identity standard's reference edition spoken aloud"
+    },
+    {
+      "id": "web-audio-librivox",
+      "kind": "speech-scripture",
+      "access": {
+        "type": "archive-item",
+        "items": [
+          "web_new_testament_0811_librivox1",
+          "bible_web_old_testament_0901_librivox2"
+        ],
+        "suffixes": [
+          "_64kb.mp3"
+        ]
+      },
+      "licence": "Public domain recording: archive.org metadata licenseurl http://creativecommons.org/licenses/publicdomain/ on both items; LibriVox releases are public domain in the USA (read 2026-10-15)",
+      "consent": "LibriVox volunteers record under the project's public-domain release",
+      "declared": {
+        "runtime": "NT 19:20:46 + OT 58:02:02 (archive.org runtime fields)",
+        "tracks_per_format": 173,
+        "readers": "numerous volunteers (count unknown)"
+      },
+      "fields": {
+        "explicit": [
+          "book",
+          "chapter",
+          "track",
+          "reader"
+        ],
+        "latent": [
+          "audio"
+        ]
+      },
+      "clocks": {},
+      "anchors": [
+        "A2",
+        "A4"
+      ],
+      "role": "multi-reader speech of the sealed WEB text: speaker variation for the audio lenses"
+    },
+    {
+      "id": "web-audio-henson",
+      "kind": "speech-scripture",
+      "access": {
+        "type": "http-head",
+        "urls": [
+          "https://ebible.org/eng-web/audio/eng-web_audio.zip"
+        ]
+      },
+      "licence": "UNRESOLVED: 'You may download, copy, and listen to this recording of the Holy Bible freely.' https://ebible.org/eng-web/audio/ grants download/copy/listen; a derivative or training right is not stated (read 2026-10-15). Admitted only after the operator or the publisher resolves it",
+      "consent": "single reciter (Winfred W. Henson); recording published by eBible.org",
+      "declared": {
+        "files": 1191,
+        "bytes_from_directory_census": 5932655297,
+        "zip_bytes": 5430057471,
+        "hours": null
+      },
+      "fields": {
+        "explicit": [
+          "book",
+          "chapter",
+          "reciter"
+        ],
+        "latent": [
+          "audio"
+        ]
+      },
+      "clocks": {},
+      "anchors": [
+        "A2",
+        "A4"
+      ],
+      "role": "complete single-reader recording of the sealed WEB text; blocked on the recording licence"
+    },
+    {
+      "id": "librispeech",
+      "kind": "speech-read",
+      "access": {
+        "type": "http-head",
+        "urls": [
+          "https://openslr.trmal.net/resources/12/train-clean-100.tar.gz",
+          "https://openslr.trmal.net/resources/12/train-clean-360.tar.gz",
+          "https://openslr.trmal.net/resources/12/train-other-500.tar.gz",
+          "https://openslr.trmal.net/resources/12/dev-clean.tar.gz",
+          "https://openslr.trmal.net/resources/12/dev-other.tar.gz",
+          "https://openslr.trmal.net/resources/12/test-clean.tar.gz",
+          "https://openslr.trmal.net/resources/12/test-other.tar.gz",
+          "https://openslr.trmal.net/resources/12/md5sum.txt"
+        ]
+      },
+      "licence": "CC BY 4.0: 'The corpus is freely available under the very permissive CC BY 4.0 license' (Panayotov et al. 2015, ICASSP paper) and 'License: CC BY 4.0' at https://www.openslr.org/12/ (read 2026-10-15); attribution duty per LibriVox reader",
+      "consent": "LibriVox public-domain audiobook recordings; readers' attribution required by CC BY",
+      "declared": {
+        "hours": 982.1,
+        "speakers": 2484,
+        "utterances": 292367,
+        "format": "flac 16 kHz",
+        "md5sum": "published"
+      },
+      "fields": {
+        "explicit": [
+          "speaker_id",
+          "chapter_id",
+          "subset"
+        ],
+        "latent": [
+          "audio",
+          "transcript"
+        ]
+      },
+      "clocks": {},
+      "anchors": [
+        "A4"
+      ],
+      "role": "general audio-lens backbone (read speech, clean/other difficulty axis); transcripts are the A4 anchor"
+    },
+    {
+      "id": "voxpopuli-en",
+      "kind": "speech-spontaneous",
+      "access": {
+        "type": "hf-tree",
+        "repo": "facebook/voxpopuli",
+        "revision": "main",
+        "path": "en"
+      },
+      "licence": "CC0: 'The dataset is distributet under CC0 license, see also European Parliament's legal notice for the raw data.' https://huggingface.co/datasets/facebook/voxpopuli (read 2026-10-15; the typo is in the source)",
+      "consent": "European Parliament plenary recordings of public officials; the card's consent section is empty",
+      "declared": {
+        "hours_en": 543,
+        "rows_en": 186077,
+        "speakers_en": 1313,
+        "bytes_en": 98803059660
+      },
+      "fields": {
+        "explicit": [
+          "speaker_id",
+          "gender",
+          "is_gold_transcript",
+          "accent"
+        ],
+        "latent": [
+          "audio",
+          "raw_text",
+          "normalized_text"
+        ]
+      },
+      "clocks": {},
+      "anchors": [
+        "A4"
+      ],
+      "role": "spontaneous speech complementary to read audiobooks; the only large ungated CC0 English set found"
+    },
+    {
+      "id": "nemotron-agentic-v1",
+      "kind": "tool-use-trajectories",
+      "access": {
+        "type": "hf-tree",
+        "repo": "nvidia/Nemotron-Agentic-v1",
+        "revision": "main",
+        "path": ""
+      },
+      "licence": "CC BY 4.0: 'This dataset is governed by the Creative Commons Attribution 4.0 International License (CC BY 4.0).' plus 'Apache 2.0 License for Glaiveai/Glaive-Function-Calling-v2' https://huggingface.co/datasets/nvidia/Nemotron-Agentic-v1 (read 2026-10-15)",
+      "consent": "synthetic; generated by Qwen3 and GPT-OSS models; tool environment 'simulated by an LLM' (card)",
+      "declared": {
+        "samples": 335122,
+        "tool_calling": 316094,
+        "interactive_agent": 19028,
+        "bytes": 5786919062,
+        "tool_returns": "synthetic (LLM-simulated)"
+      },
+      "fields": {
+        "explicit": [
+          "tools",
+          "role",
+          "turn"
+        ],
+        "latent": [
+          "messages"
+        ]
+      },
+      "clocks": {},
+      "anchors": [
+        "A1"
+      ],
+      "role": "tool schemas and multi-turn call structure for the action head; returns are simulated, so not an execution anchor on its own"
+    },
+    {
+      "id": "swe-agent-trajectories",
+      "kind": "tool-use-trajectories",
+      "access": {
+        "type": "hf-tree",
+        "repo": "nebius/SWE-agent-trajectories",
+        "revision": "main",
+        "path": ""
+      },
+      "licence": "CC BY 4.0: 'The dataset is licensed under the Creative Commons Attribution 4.0 license.' https://huggingface.co/datasets/nebius/SWE-agent-trajectories (read 2026-10-15)",
+      "consent": "agent runs over public GitHub repositories; observations 'from the environment' (card), to be confirmed as captured process output on acquisition",
+      "declared": {
+        "trajectories": 80036,
+        "bytes": 1114367701,
+        "tool_returns": "plausibly observed (eval_logs of test execution); unconfirmed"
+      },
+      "fields": {
+        "explicit": [
+          "instance_id",
+          "model",
+          "exit_status"
+        ],
+        "latent": [
+          "trajectory",
+          "observations"
+        ]
+      },
+      "clocks": {},
+      "anchors": [
+        "A1"
+      ],
+      "role": "observed environment returns over a narrow action space (file editor, shell, tests): the execution anchor for tool use"
+    },
+    {
+      "id": "dolci-tool-use",
+      "kind": "tool-use-trajectories",
+      "access": {
+        "type": "hf-tree",
+        "repo": "allenai/Dolci-Instruct-SFT-Tool-Use",
+        "revision": "main",
+        "path": ""
+      },
+      "licence": "ODC-BY: 'This dataset is licensed under ODC-BY. It is intended for research and educational use in accordance with Ai2's Responsible Use Guidelines.' (raw README, read 2026-10-15); the HF API licence field is empty",
+      "consent": "generating model not stated on the card; return provenance not stated",
+      "declared": {
+        "examples": 227579,
+        "bytes": 789047125,
+        "tool_returns": "unknown"
+      },
+      "fields": {
+        "explicit": [
+          "functions",
+          "function_calls",
+          "role"
+        ],
+        "latent": [
+          "content"
+        ]
+      },
+      "clocks": {},
+      "anchors": [
+        "A1"
+      ],
+      "role": "runner-up tool-use set with explicit function schemas; held back until return provenance is read from the bytes"
+    },
+    {
+      "id": "bfcl",
+      "kind": "tool-use-evaluation",
+      "access": {
+        "type": "hf-tree",
+        "repo": "gorilla-llm/Berkeley-Function-Calling-Leaderboard",
+        "revision": "main",
+        "path": ""
+      },
+      "licence": "Apache-2.0 tag only; no licence prose on the card (read 2026-10-15): to be read from the distributed bytes before use",
+      "consent": "human-curated functions and REST endpoints; executable categories",
+      "declared": {
+        "bytes": 11700000,
+        "multi_turn": "200 base + 800 augmented",
+        "exec_categories": "real executed calls"
+      },
+      "fields": {
+        "explicit": [
+          "category",
+          "function_doc"
+        ],
+        "latent": [
+          "question"
+        ]
+      },
+      "clocks": {},
+      "anchors": [
+        "A1"
+      ],
+      "role": "held-out evaluation gate for tool use (executed categories), never training volume"
+    }
+  ]
+}

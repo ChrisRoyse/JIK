@@ -1,0 +1,595 @@
+{
+  "contract": "panel-v1",
+  "families": {
+    "a1-oci-tests": {
+      "H_Y_bits": 0.9235551632490466,
+      "admitted": [
+        "e5-multilingual-small"
+      ],
+      "assay_blake3": "efa13d7ef7452dcb67f5742b5e5f6b2915e09952560f5bf9dcb6dfbdba4e2b96",
+      "eligible_standalone": [
+        "all-minilm-l6-v2",
+        "all-mpnet-base-v2",
+        "allenai-specter",
+        "answerai-colbert-small",
+        "arctic-embed-l-v2",
+        "bge-base-en-v1.5",
+        "bge-financial-matryoshka",
+        "bge-m3-colbert",
+        "bge-m3-dense",
+        "bge-m3-sparse",
+        "code-structure-signature",
+        "codebert-mean",
+        "colbertv2",
+        "e5-base-v2",
+        "e5-multilingual-base",
+        "e5-multilingual-small",
+        "finbert-mean",
+        "granite-278m-multilingual",
+        "granite-english-r2",
+        "gte-base",
+        "gte-modernbert-base",
+        "gte-moderncolbert",
+        "legal-bert-mean",
+        "medembed-base",
+        "mxbai-embed-large-v1",
+        "nomic-modernbert-embed",
+        "opensearch-sparse-doc-v2",
+        "paraphrase-multilingual-minilm",
+        "potion-base-8m",
+        "pubmedbert-embeddings",
+        "qwen3-embedding-0.6b",
+        "record-vector",
+        "scalar-raw",
+        "scibert-mean",
+        "specter2-base",
+        "splade-pp-en-v1",
+        "text-char-trigram",
+        "text-stylometry",
+        "unixcoder-mean"
+      ],
+      "n": 1993,
+      "n_eff": 1.0,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 0.9235551632490466,
+        "I_panel_bits": 0.21408611058149726,
+        "I_panel_lcb": 0.21408611058149726,
+        "deficit_bits": 0.7094690526675493,
+        "deficit_split": {
+          "e5-multilingual-small": 0.7094690526675493
+        },
+        "sufficient": false,
+        "suggested_action": "propose a lens"
+      }
+    },
+    "a2-wikidata-p31": {
+      "H_Y_bits": 3.584962500721156,
+      "admitted": [
+        "finbert-mean",
+        "colbertv2"
+      ],
+      "assay_blake3": "1fb5cccc5b00919399abe306dfe2fd424120a71edfc7e34e1e49446982315b9c",
+      "eligible_standalone": [
+        "all-minilm-l6-v2",
+        "all-mpnet-base-v2",
+        "allenai-specter",
+        "answerai-colbert-small",
+        "arctic-embed-l-v2",
+        "bge-base-en-v1.5",
+        "bge-financial-matryoshka",
+        "bge-m3-colbert",
+        "bge-m3-dense",
+        "bge-m3-sparse",
+        "chatgpt-detector-roberta",
+        "codebert-mean",
+        "colbertv2",
+        "e5-base-v2",
+        "e5-multilingual-base",
+        "e5-multilingual-small",
+        "emotion-distilroberta",
+        "finbert-mean",
+        "fineweb-edu-classifier",
+        "formality-ranker",
+        "granite-278m-multilingual",
+        "granite-english-r2",
+        "gte-base",
+        "gte-modernbert-base",
+        "gte-moderncolbert",
+        "legal-bert-mean",
+        "medembed-base",
+        "mxbai-embed-large-v1",
+        "nomic-modernbert-embed",
+        "opensearch-sparse-doc-v2",
+        "paraphrase-multilingual-minilm",
+        "potion-base-8m",
+        "pubmedbert-embeddings",
+        "qwen3-embedding-0.6b",
+        "roberta-go-emotions",
+        "scibert-mean",
+        "specter2-base",
+        "splade-pp-en-v1",
+        "text-char-trigram",
+        "text-hash-tfidf",
+        "text-stylometry",
+        "toxic-bert",
+        "twitter-roberta-sentiment",
+        "unixcoder-mean",
+        "xlmr-language-detection"
+      ],
+      "n": 1992,
+      "n_eff": 1.7273720604050782,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 3.584962500721156,
+        "I_panel_bits": 2.9893467149184603,
+        "I_panel_lcb": 2.9893467149184603,
+        "deficit_bits": 0.5956157858026958,
+        "deficit_split": {
+          "colbertv2": 0.301090476056848,
+          "finbert-mean": 0.29452530974584784
+        },
+        "sufficient": false,
+        "suggested_action": "propose a lens"
+      }
+    },
+    "a3-gdelt-dyad-7d": {
+      "H_Y_bits": 0.51921583106851,
+      "admitted": [],
+      "assay_blake3": "4f01ad441c3ff3ca77f69a876a1bc3801769e9a74f2345a2e82ca00551924b53",
+      "eligible_standalone": [],
+      "n": 2000,
+      "n_eff": null,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 0.51921583106851,
+        "I_panel_bits": 0.0,
+        "I_panel_lcb": null,
+        "deficit_bits": 0.51921583106851,
+        "deficit_split": {},
+        "sufficient": false,
+        "suggested_action": "add an outcome anchor or propose a lens"
+      }
+    },
+    "a4-scripture-genre": {
+      "H_Y_bits": 3.169925001442312,
+      "admitted": [
+        "scalar-minmax",
+        "text-stylometry"
+      ],
+      "assay_blake3": "b010eb427f24fc5330e82759318492d9d0b1f06433b884395c76684bb58bcac3",
+      "eligible_standalone": [
+        "all-minilm-l6-v2",
+        "all-mpnet-base-v2",
+        "answerai-colbert-small",
+        "arctic-embed-l-v2",
+        "bge-base-en-v1.5",
+        "bge-financial-matryoshka",
+        "bge-m3-colbert",
+        "bge-m3-dense",
+        "bge-m3-sparse",
+        "codebert-mean",
+        "colbertv2",
+        "e5-base-v2",
+        "e5-multilingual-base",
+        "e5-multilingual-small",
+        "emotion-distilroberta",
+        "finbert-mean",
+        "granite-278m-multilingual",
+        "granite-english-r2",
+        "gte-base",
+        "gte-modernbert-base",
+        "gte-moderncolbert",
+        "legal-bert-mean",
+        "medembed-base",
+        "mxbai-embed-large-v1",
+        "nomic-modernbert-embed",
+        "paraphrase-multilingual-minilm",
+        "potion-base-8m",
+        "qwen3-embedding-0.6b",
+        "record-vector",
+        "roberta-go-emotions",
+        "scalar-log1p",
+        "scalar-minmax",
+        "scalar-rank",
+        "scalar-raw",
+        "scalar-robust",
+        "scalar-winsor",
+        "scalar-z",
+        "splade-pp-en-v1",
+        "text-char-trigram",
+        "text-stylometry",
+        "toxic-bert",
+        "twitter-roberta-sentiment",
+        "unixcoder-mean",
+        "xlmr-language-detection"
+      ],
+      "n": 1998,
+      "n_eff": 1.969362583106299,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 3.169925001442312,
+        "I_panel_bits": 1.3441156173103068,
+        "I_panel_lcb": 1.3441156173103068,
+        "deficit_bits": 1.8258093841320053,
+        "deficit_split": {
+          "scalar-minmax": 0.44676783070516346,
+          "text-stylometry": 1.3790415534268419
+        },
+        "sufficient": false,
+        "suggested_action": "propose a lens"
+      }
+    },
+    "a5-gdelt-sources": {
+      "H_Y_bits": 0.6667737919919465,
+      "admitted": [],
+      "assay_blake3": "7b369b6ab58333a5f65155f128fe009ad787b4a4d441f672cca78c30fd6d4d34",
+      "eligible_standalone": [],
+      "n": 2000,
+      "n_eff": null,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 0.6667737919919465,
+        "I_panel_bits": 0.0,
+        "I_panel_lcb": null,
+        "deficit_bits": 0.6667737919919465,
+        "deficit_split": {},
+        "sufficient": false,
+        "suggested_action": "add an outcome anchor or propose a lens"
+      }
+    },
+    "a6-cuyahoga-cited": {
+      "H_Y_bits": 1.0,
+      "admitted": [
+        "record-vector"
+      ],
+      "assay_blake3": "e072321733c52eee5468b9b5c82e488b822a656421c3bc2c2dc19658d49bc927",
+      "eligible_standalone": [
+        "all-mpnet-base-v2",
+        "allenai-specter",
+        "answerai-colbert-small",
+        "arctic-embed-l-v2",
+        "bge-financial-matryoshka",
+        "bge-m3-dense",
+        "bge-m3-sparse",
+        "chatgpt-detector-roberta",
+        "codebert-mean",
+        "colbertv2",
+        "e5-base-v2",
+        "e5-multilingual-base",
+        "e5-multilingual-small",
+        "emotion-distilroberta",
+        "finbert-mean",
+        "formality-ranker",
+        "gpt2-nll",
+        "granite-278m-multilingual",
+        "granite-english-r2",
+        "gte-base",
+        "gte-modernbert-base",
+        "gte-moderncolbert",
+        "legal-bert-mean",
+        "length-signature",
+        "medembed-base",
+        "mxbai-embed-large-v1",
+        "nomic-modernbert-embed",
+        "opensearch-sparse-doc-v2",
+        "paraphrase-multilingual-minilm",
+        "potion-base-8m",
+        "pubmedbert-embeddings",
+        "record-vector",
+        "roberta-cola",
+        "roberta-go-emotions",
+        "scalar-log1p",
+        "scalar-minmax",
+        "scalar-raw",
+        "scalar-robust",
+        "scibert-mean",
+        "specter2-base",
+        "text-char-trigram",
+        "text-stylometry",
+        "toxic-bert",
+        "twitter-roberta-sentiment",
+        "unixcoder-mean",
+        "xlmr-language-detection"
+      ],
+      "n": 2000,
+      "n_eff": 1.0,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 1.0,
+        "I_panel_bits": 0.5382324325913235,
+        "I_panel_lcb": 0.5162340072935809,
+        "deficit_bits": 0.4617675674086765,
+        "deficit_split": {
+          "record-vector": 0.4617675674086765
+        },
+        "sufficient": false,
+        "suggested_action": "propose a lens"
+      }
+    }
+  },
+  "frozen_at": "2026-10-16T03:56:21Z",
+  "gates": {
+    "candidates_ge_40": true,
+    "candidates_with_contracts_and_probes": 64,
+    "every_registered_lens_probe_byte_identical": true,
+    "families_served_ge3": false,
+    "families_served_ge5_lenses": [],
+    "families_sufficient": [],
+    "registration_failures": {},
+    "sufficiency_reported_per_family": true
+  },
+  "host": "aiwonder",
+  "invariants": {
+    "admission_ledger_seq": 366,
+    "calibration_ledger_seq": 356,
+    "cpu_fallback": false,
+    "dtype": "f32",
+    "lens_count": 6,
+    "lens_ids_blake3": "b9468a39588a60c7a73e54d350c1281ea7d09afa468af37b47b89f4710307037",
+    "registry_blake3": "50235957cf6a0ce5489ff088423b1c5d08f98beedba2b41194144d25b31c158c",
+    "runtime": {
+      "cuda": "13.0",
+      "deterministic": true,
+      "device": "NVIDIA GeForce RTX 5090",
+      "resident_before": "pid, process_name, used_gpu_memory [MiB]\n",
+      "torch": "2.14.1+cu130"
+    },
+    "weights_sha256": {
+      "colbertv2": "74dee029527a89abc3ef4991e70b9609054ae17e2e4c7f405a0f45ad8b6830b1",
+      "e5-multilingual-small": "7b5436d988f0cb90b319bcc451556d63511baf0f8eeb73858ece464152094ee8",
+      "finbert-mean": "7388226d1ce6b4b2cacbefeca0f4f59228ba0d7ecc62accc1e8550b8376ba1cc",
+      "record-vector": "1b84e7f554e046d459d77b3f7eb783709ccdb2e3165feedbbb1820f0b6eab476",
+      "scalar-minmax": "1b84e7f554e046d459d77b3f7eb783709ccdb2e3165feedbbb1820f0b6eab476",
+      "text-stylometry": "1b84e7f554e046d459d77b3f7eb783709ccdb2e3165feedbbb1820f0b6eab476"
+    }
+  },
+  "ledger_head": "def088b963cdc12af5215da7393ff9bed1de90cce60c70a9af30aca6220e2add",
+  "ledger_seq": 367,
+  "lenses": [
+    {
+      "admitted_for": [
+        "a2-wikidata-p31"
+      ],
+      "bits": {
+        "a2-wikidata-p31": {
+          "bits_mean": 2.6699632030494356,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 2.5644885134462667,
+          "n_used": 1992,
+          "ucb_max": 3.0174082864572327
+        }
+      },
+      "contract": {
+        "corpus_hash": "c1e84128e85ef755c096a95bdb06b47793b13acf",
+        "dtype": "f32",
+        "kind": "multi",
+        "max_len": 512,
+        "max_windows": 8,
+        "modality": "text",
+        "name": "colbertv2",
+        "norm": "unit",
+        "pool": null,
+        "prefix": "",
+        "repo": "colbert-ir/colbertv2.0",
+        "revision": "c1e84128e85ef755c096a95bdb06b47793b13acf",
+        "shape": "Multi(128)",
+        "weight_files": [
+          "model.safetensors",
+          "pytorch_model.bin"
+        ],
+        "weights_sha256": "74dee029527a89abc3ef4991e70b9609054ae17e2e4c7f405a0f45ad8b6830b1"
+      },
+      "lens_id": "36ddc8a532af0201c799be4ff464ee91",
+      "name": "colbertv2",
+      "probe": {
+        "batch_invariance_max_abs": 1.5944242477416992e-06,
+        "byte_identical": true,
+        "n": 64
+      }
+    },
+    {
+      "admitted_for": [
+        "a1-oci-tests"
+      ],
+      "bits": {
+        "a1-oci-tests": {
+          "bits_mean": 0.1916677463844693,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 0.16480939261092564,
+          "n_used": 1993,
+          "ucb_max": 0.2771219279616344
+        }
+      },
+      "contract": {
+        "corpus_hash": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+        "dtype": "f32",
+        "kind": "dense",
+        "max_len": 512,
+        "max_windows": 8,
+        "modality": "text",
+        "name": "e5-multilingual-small",
+        "norm": "unit",
+        "pool": "mean",
+        "prefix": "query: ",
+        "repo": "intfloat/multilingual-e5-small",
+        "revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+        "shape": "Dense(384)",
+        "weight_files": [
+          "model.safetensors",
+          "pytorch_model.bin"
+        ],
+        "weights_sha256": "7b5436d988f0cb90b319bcc451556d63511baf0f8eeb73858ece464152094ee8"
+      },
+      "lens_id": "596449d59482f2b4dd4596196f1c1c3e",
+      "name": "e5-multilingual-small",
+      "probe": {
+        "batch_invariance_max_abs": 7.078051567077637e-08,
+        "byte_identical": true,
+        "n": 64
+      }
+    },
+    {
+      "admitted_for": [
+        "a2-wikidata-p31"
+      ],
+      "bits": {
+        "a2-wikidata-p31": {
+          "bits_mean": 2.7297013768266325,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 2.64202413986535,
+          "n_used": 1992,
+          "ucb_max": 3.1171364986744416
+        }
+      },
+      "contract": {
+        "corpus_hash": "0bc2ac10dda6929bcb1f77ccc43c7ec5c424f031",
+        "dtype": "f32",
+        "kind": "dense",
+        "max_len": 512,
+        "max_windows": 8,
+        "modality": "text",
+        "name": "finbert-mean",
+        "norm": "unit",
+        "pool": "mean",
+        "prefix": "",
+        "repo": "ProsusAI/finbert",
+        "revision": "0bc2ac10dda6929bcb1f77ccc43c7ec5c424f031",
+        "shape": "Dense(768)",
+        "weight_files": [
+          "model.safetensors",
+          "pytorch_model.bin"
+        ],
+        "weights_sha256": "7388226d1ce6b4b2cacbefeca0f4f59228ba0d7ecc62accc1e8550b8376ba1cc"
+      },
+      "lens_id": "20098f3e6d996aac35338df11a697f6f",
+      "name": "finbert-mean",
+      "probe": {
+        "batch_invariance_max_abs": 1.043081283569336e-07,
+        "byte_identical": true,
+        "n": 64
+      }
+    },
+    {
+      "admitted_for": [
+        "a6-cuyahoga-cited"
+      ],
+      "bits": {
+        "a6-cuyahoga-cited": {
+          "bits_mean": 0.5374730259981736,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 0.5040416076006397,
+          "n_used": 2000,
+          "ucb_max": 0.5959033603362229
+        }
+      },
+      "contract": {
+        "corpus_hash": "none",
+        "dtype": "f32",
+        "encoders_blake3": "f8c6c4666f264c01c97eb8b3be3e38b057514c2de3901798f125d6fb9695eb46",
+        "inputs": "fields",
+        "kind": "encoder",
+        "modality": "record",
+        "name": "record-vector",
+        "norm": "declared(per lens)",
+        "shape": "Dense(var)",
+        "sim": "cosine",
+        "weight_files": [
+          "scripts/lens/encoders.py"
+        ],
+        "weights_sha256": "1b84e7f554e046d459d77b3f7eb783709ccdb2e3165feedbbb1820f0b6eab476"
+      },
+      "lens_id": "b425573543cf5b55d83de2816828bce8",
+      "name": "record-vector",
+      "probe": {
+        "batch_invariance_max_abs": 0.0,
+        "byte_identical": true,
+        "n": 64
+      }
+    },
+    {
+      "admitted_for": [
+        "a4-scripture-genre"
+      ],
+      "bits": {
+        "a4-scripture-genre": {
+          "bits_mean": 1.2144886301245446,
+          "coverage": 1.0,
+          "fingerprint_suspect": false,
+          "lcb_min": 1.039885780129797,
+          "n_used": 1998,
+          "ucb_max": 1.451662547826027
+        }
+      },
+      "contract": {
+        "corpus_hash": "none",
+        "dtype": "f32",
+        "encoders_blake3": "f8c6c4666f264c01c97eb8b3be3e38b057514c2de3901798f125d6fb9695eb46",
+        "inputs": "fields",
+        "kind": "encoder",
+        "modality": "record",
+        "name": "scalar-minmax",
+        "norm": "declared(per lens)",
+        "shape": "Dense(var)",
+        "sim": "neg_cheb",
+        "weight_files": [
+          "scripts/lens/encoders.py"
+        ],
+        "weights_sha256": "1b84e7f554e046d459d77b3f7eb783709ccdb2e3165feedbbb1820f0b6eab476"
+      },
+      "lens_id": "de19a097a0fb25fce77314649586f7ed",
+      "name": "scalar-minmax",
+      "probe": {
+        "batch_invariance_max_abs": 0.0,
+        "byte_identical": true,
+        "n": 64
+      }
+    },
+    {
+      "admitted_for": [
+        "a4-scripture-genre"
+      ],
+      "bits": {
+        "a4-scripture-genre": {
+          "bits_mean": 0.3866973494340769,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 0.36331950892100473,
+          "n_used": 1998,
+          "ucb_max": 0.4889727570863966
+        }
+      },
+      "contract": {
+        "corpus_hash": "none",
+        "dtype": "f32",
+        "encoders_blake3": "f8c6c4666f264c01c97eb8b3be3e38b057514c2de3901798f125d6fb9695eb46",
+        "inputs": "text",
+        "kind": "encoder",
+        "modality": "text",
+        "name": "text-stylometry",
+        "norm": "declared(per lens)",
+        "shape": "Dense(var)",
+        "sim": "cosine",
+        "weight_files": [
+          "scripts/lens/encoders.py"
+        ],
+        "weights_sha256": "1b84e7f554e046d459d77b3f7eb783709ccdb2e3165feedbbb1820f0b6eab476"
+      },
+      "lens_id": "1bfbc701cb6853c1d84af21bf8a202c2",
+      "name": "text-stylometry",
+      "probe": {
+        "batch_invariance_max_abs": 0.0,
+        "byte_identical": true,
+        "n": 64
+      }
+    }
+  ],
+  "panel_blake3": "10737be1ba959616786075300c51506728af93b35c08936ae99df078cc7d9de4",
+  "panel_version": "panel-p0-v1",
+  "population_version": "p0-v1",
+  "superseded_panel_blake3": "d82cfbf6ba77409a6d7a8736edc9fc57339f3bd93c70a13eeaf0e00e255b4e43"
+}

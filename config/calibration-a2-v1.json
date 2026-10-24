@@ -1,0 +1,151 @@
+{
+  "families": {
+    "biomedical": {
+      "original_anchors_sha256": "c556ee63003f8d05f39d9ccab9e62baae489869e46059ff01da00986c0ecee26",
+      "questions": {
+        "P1057": [
+          "Q430258",
+          "Q847096",
+          "Q638893",
+          "Q540857",
+          "Q510786",
+          "Q668633"
+        ],
+        "P1995": [
+          "Q1071953",
+          "Q83042",
+          "Q788926",
+          "Q162606",
+          "Q162555",
+          "Q120569"
+        ],
+        "P527": [
+          "Q623",
+          "Q627",
+          "Q629"
+        ]
+      },
+      "rows_sha256": "88a962fce99f8695a2b47a36ab2636cad30502c29ad8dfaaf846626d4df9f819",
+      "summary_sha256": "0b5b3f585dfe6992393290a7bcd5d8f4787c7b9df6f9a0ff852bccd7a9a92fe8"
+    },
+    "code": {
+      "original_anchors_sha256": "4fd568a8e297cd8deb2ac86923266a631bfacae1bc782e5263f2bf047b3aea24",
+      "questions": {
+        "P178": [
+          "Q2283",
+          "Q312",
+          "Q37156",
+          "Q95",
+          "Q11463",
+          "Q19900"
+        ],
+        "P275": [
+          "Q7603",
+          "Q192897",
+          "Q334661",
+          "Q616526",
+          "Q191307",
+          "Q1281977"
+        ],
+        "P277": [
+          "Q2407",
+          "Q251",
+          "Q15777"
+        ],
+        "P306": [
+          "Q1406",
+          "Q388",
+          "Q14116",
+          "Q174666",
+          "Q48493",
+          "Q94"
+        ],
+        "P366": [
+          "Q336",
+          "Q189177",
+          "Q128570",
+          "Q179012"
+        ]
+      },
+      "rows_sha256": "d07c54a4898d0a120be81987667b6be23bf9b21975d73271731c41cb6822e5f5",
+      "summary_sha256": "bed9dc3b90ca4df2af1ba47729d36d57b22959f8d5fb47be5ea069f1f80d74a1"
+    },
+    "finance": {
+      "original_anchors_sha256": "07a681d1df6e205323bad5728b64789d9beea2c95766f27df40361910fb44e5e",
+      "questions": {
+        "P159": [
+          "Q84",
+          "Q60",
+          "Q65",
+          "Q62",
+          "Q172",
+          "Q1156"
+        ],
+        "P17": [
+          "Q30",
+          "Q183",
+          "Q145",
+          "Q16",
+          "Q408",
+          "Q148"
+        ],
+        "P414": [
+          "Q13677",
+          "Q82059"
+        ]
+      },
+      "rows_sha256": "179af61bec53d52dd83c5cda47ecfb7f49eb75fa670329e9ec5ff2165b98f18e",
+      "summary_sha256": "a41a144108dcc5d8794e65f6d20855f8abe912e52c3f3519eac2290ff598ec32"
+    },
+    "legal": {
+      "original_anchors_sha256": "21bfa679ca9ee2ab6d0e98961aa273463801cca2a4787697fe53be52bb148b1d",
+      "questions": {
+        "P131": [
+          "Q1546",
+          "Q1397",
+          "Q812",
+          "Q1439",
+          "Q1384",
+          "Q1370"
+        ]
+      },
+      "rows_sha256": "3a6878727bbeded26a38f3e31a1d4902c34e60b0377f7a3dad8bf55d4fd92ed7",
+      "summary_sha256": "2526d7780197d45b994b29c512b38273aa64980d3e93627323eaed2e1f47d33b"
+    },
+    "science": {
+      "original_anchors_sha256": "4bd7ec8fbce77509c1dfc0416911a2ac192a772f6f02c04c7eaa764e0e2c356c",
+      "questions": {
+        "P123": [
+          "Q746413",
+          "Q251266",
+          "Q767319",
+          "Q176916",
+          "Q1479654",
+          "Q680946"
+        ],
+        "P495": [
+          "Q30",
+          "Q145",
+          "Q183",
+          "Q55"
+        ],
+        "P921": [
+          "Q395",
+          "Q2329",
+          "Q36442",
+          "Q7193",
+          "Q11023",
+          "Q38157"
+        ]
+      },
+      "rows_sha256": "dc014aa8b821da9c2ff19f600a8f3b0f62c283b09679488a3c7e51c77cdcba8c",
+      "summary_sha256": "0ed7ae42c92513848e536af2af1a0e64a777642f48704fd01073495461c174ed"
+    }
+  },
+  "ordering": "sha256(25|chunked|entity),entity",
+  "sample_target": 500,
+  "schema": "a2-calibration-contract-v1",
+  "scope": "calibration only; historical exploratory overlap allowed and reported",
+  "seed": 25,
+  "source_report_sha256": "6d91d53106884a34eb49014d2fb3d941f7238f95d5eb720bf9b25590eba421a5"
+}

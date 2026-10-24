@@ -1,0 +1,22 @@
+{
+  "contract": "book-classes-v1",
+  "note": "USFM book code -> testament and genre, applied to every verse key at Stage 2 alignment (issue #11, deferred item 'genre/testament fields on every edition'). Testament: OT (Hebrew Bible), NT, DC (deuterocanon and apocrypha as the editions that carry them number them), other (front and back matter). Genre is by book, the coarse class the spec lists (law, history, wisdom, psalm, prophecy, gospel, acts, letter, apocalypse); section-level genre (saying, parable, narrative inside a gospel) is a Stage 3 lens, not a field. A code absent here is reported by the FSV as unclassified, never guessed.",
+  "testament": {
+    "OT": ["GEN", "EXO", "LEV", "NUM", "DEU", "JOS", "JDG", "RUT", "1SA", "2SA", "1KI", "2KI", "1CH", "2CH", "EZR", "NEH", "EST", "JOB", "PSA", "PRO", "ECC", "SNG", "ISA", "JER", "LAM", "EZK", "DAN", "HOS", "JOL", "AMO", "OBA", "JON", "MIC", "NAM", "HAB", "ZEP", "HAG", "ZEC", "MAL"],
+    "NT": ["MAT", "MRK", "LUK", "JHN", "ACT", "ROM", "1CO", "2CO", "GAL", "EPH", "PHP", "COL", "1TH", "2TH", "1TI", "2TI", "TIT", "PHM", "HEB", "JAS", "1PE", "2PE", "1JN", "2JN", "3JN", "JUD", "REV"],
+    "DC": ["TOB", "JDT", "ESG", "WIS", "SIR", "BAR", "LJE", "S3Y", "SUS", "BEL", "1MA", "2MA", "3MA", "4MA", "1ES", "2ES", "MAN", "PS2", "ODA", "PSS", "EZA", "5EZ", "6EZ", "DAG", "PS3", "2BA", "LBA", "JUB", "ENO", "1MQ", "2MQ", "3MQ", "REP", "4BA", "LAO"],
+    "other": ["FRT", "BAK", "OTH", "INT", "CNC", "GLO", "TDX", "NDX", "XXA", "XXB", "XXC", "XXD", "XXE", "XXF", "XXG"]
+  },
+  "genre": {
+    "law": ["GEN", "EXO", "LEV", "NUM", "DEU"],
+    "history": ["JOS", "JDG", "RUT", "1SA", "2SA", "1KI", "2KI", "1CH", "2CH", "EZR", "NEH", "EST", "TOB", "JDT", "ESG", "SUS", "BEL", "1MA", "2MA", "3MA", "1ES", "2ES", "DAG", "JUB"],
+    "wisdom": ["JOB", "PRO", "ECC", "SNG", "WIS", "SIR", "4MA"],
+    "psalm": ["PSA", "PS2", "PS3", "ODA", "PSS", "MAN", "S3Y"],
+    "prophecy": ["ISA", "JER", "LAM", "EZK", "DAN", "HOS", "JOL", "AMO", "OBA", "JON", "MIC", "NAM", "HAB", "ZEP", "HAG", "ZEC", "MAL", "BAR", "LJE", "EZA", "5EZ", "6EZ", "2BA", "LBA", "ENO", "4BA", "1MQ", "2MQ", "3MQ", "REP"],
+    "gospel": ["MAT", "MRK", "LUK", "JHN"],
+    "acts": ["ACT"],
+    "letter": ["ROM", "1CO", "2CO", "GAL", "EPH", "PHP", "COL", "1TH", "2TH", "1TI", "2TI", "TIT", "PHM", "HEB", "JAS", "1PE", "2PE", "1JN", "2JN", "3JN", "JUD", "LAO"],
+    "apocalypse": ["REV"],
+    "other": ["FRT", "BAK", "OTH", "INT", "CNC", "GLO", "TDX", "NDX", "XXA", "XXB", "XXC", "XXD", "XXE", "XXF", "XXG"]
+  }
+}

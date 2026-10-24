@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Last-mile MNLM repository boundary. Git supplies the actual push destination
+# as argument 2, including a configured pushurl or a literal command-line URL.
+set -euo pipefail
+
+remote_name="${1:-<literal-url>}"
+destination="${2:-}"
+normalized="$(printf '%s' "$destination" | tr '[:upper:]' '[:lower:]')"
+
+case "$normalized" in
+  https://github.com/chrisroyse/mnlm|https://github.com/chrisroyse/mnlm.git|https://github.com/chrisroyse/jik|https://github.com/chrisroyse/jik.git|\
+  git@github.com:chrisroyse/mnlm|git@github.com:chrisroyse/mnlm.git|git@github.com:chrisroyse/jik|git@github.com:chrisroyse/jik.git|\
+  ssh://git@github.com/chrisroyse/mnlm|ssh://git@github.com/chrisroyse/mnlm.git|ssh://git@github.com/chrisroyse/jik|ssh://git@github.com/chrisroyse/jik.git)
+    ;;
+  *)
+    printf '%s\n' "{\"ok\":false,\"code\":\"MNLM_PUSH_DESTINATION_FORBIDDEN\",\"message\":\"push via $remote_name targets '$destination'; only ChrisRoyse/MNLM is permitted\"}" >&2
+    exit 1
+    ;;
+esac
+
+exit 0

@@ -1,0 +1,41 @@
+# Ignore everything in the repository root by default...
+/*
+
+# ...then explicitly allow source, docs and repo meta files.
+!/.gitignore
+!/AGENTS.md
+!/CLAUDE.md
+!/README.md
+!/.githooks/
+!/assets/
+!/scripts/
+!/config/
+!/src/
+!/crates/
+!/.claude/
+
+# Inside .claude: track the cabinet, commands and shared settings; never the
+# per-machine settings or the agents' private memories.
+/.claude/*
+!/.claude/agents/
+!/.claude/commands/
+!/.claude/settings.json
+!/.claude/loop.md
+
+# Data, evidence and caches never enter git. Workstation data root is
+# D:\MNLMData; aiwonder data roots are /zfs/hot/mnlm and /zfs/archive/mnlm.
+/var/
+/tmp/
+/data/
+/.hf-cache/
+/target/
+
+# Secrets (names only in the repo; see AGENTS.md)
+.env
+*.pem
+id_*
+!id_*.pub
+
+# Python bytecode caches
+__pycache__/
+*.pyc

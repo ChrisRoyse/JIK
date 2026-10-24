@@ -1,0 +1,1243 @@
+{
+  "anchor_families": {
+    "A1": {
+      "admitted_union": [
+        "bge-m3-sparse"
+      ],
+      "questions": [
+        "a1-oci-tests",
+        "a1-oci-outcome3"
+      ],
+      "served": false
+    },
+    "A2": {
+      "admitted_union": [
+        "kg-relation-signature",
+        "opensearch-sparse-doc-v2",
+        "splade-pp-en-v1"
+      ],
+      "questions": [
+        "a2-wikidata-p31",
+        "a2-wikidata-p17",
+        "a2-wikidata-p106",
+        "a2-wikidata-p31-rare"
+      ],
+      "served": false
+    },
+    "A3": {
+      "admitted_union": [
+        "gdelt-pair-history"
+      ],
+      "questions": [
+        "a3-gdelt-dyad-7d",
+        "a3-gdelt-next-quad"
+      ],
+      "served": false
+    },
+    "A4": {
+      "admitted_union": [
+        "scalar-winsor",
+        "splade-pp-en-v1"
+      ],
+      "questions": [
+        "a4-scripture-genre"
+      ],
+      "served": false
+    },
+    "A5": {
+      "admitted_union": [
+        "gdelt-actor-activity",
+        "gdelt-event-recurrence"
+      ],
+      "questions": [
+        "a5-gdelt-sources"
+      ],
+      "served": false
+    },
+    "A6": {
+      "admitted_union": [
+        "record-vector"
+      ],
+      "questions": [
+        "a6-cuyahoga-cited",
+        "a6-cuyahoga-cite-tier"
+      ],
+      "served": false
+    }
+  },
+  "contract": "panel-v1",
+  "families": {
+    "a1-oci-outcome3": {
+      "H_Y_bits": 1.5488235615551027,
+      "admitted": [
+        "bge-m3-sparse"
+      ],
+      "assay_blake3": "aac389f915038e9e4073b616f5fd5c81386b6b702c37c5e36c0d157e4abcd2fc",
+      "eligible_standalone": [
+        "all-minilm-l6-v2",
+        "all-mpnet-base-v2",
+        "allenai-specter",
+        "answerai-colbert-small",
+        "arctic-embed-l-v2",
+        "bge-base-en-v1.5",
+        "bge-financial-matryoshka",
+        "bge-m3-colbert",
+        "bge-m3-dense",
+        "bge-m3-sparse",
+        "code-ast-histogram",
+        "code-structure-signature",
+        "codebert-mean",
+        "colbertv2",
+        "e5-base-v2",
+        "e5-multilingual-base",
+        "e5-multilingual-small",
+        "emotion-distilroberta",
+        "finbert-mean",
+        "granite-278m-multilingual",
+        "granite-english-r2",
+        "gte-base",
+        "gte-modernbert-base",
+        "gte-moderncolbert",
+        "legal-bert-mean",
+        "length-signature",
+        "medembed-base",
+        "mxbai-embed-large-v1",
+        "nomic-modernbert-embed",
+        "opensearch-sparse-doc-v2",
+        "paraphrase-multilingual-minilm",
+        "potion-base-8m",
+        "pubmedbert-embeddings",
+        "qwen3-embedding-0.6b",
+        "record-vector",
+        "roberta-go-emotions",
+        "scalar-raw",
+        "scalar-winsor",
+        "scibert-mean",
+        "specter2-base",
+        "splade-pp-en-v1",
+        "text-char-trigram",
+        "text-stylometry",
+        "unixcoder-mean",
+        "xlmr-language-detection"
+      ],
+      "n": 1993,
+      "n_eff": 1.0,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 1.5488235615551027,
+        "I_panel_bits": 0.35821631050010855,
+        "I_panel_lcb": 0.3281839362994282,
+        "deficit_bits": 1.190607251054994,
+        "deficit_split": {
+          "bge-m3-sparse": 1.190607251054994
+        },
+        "sufficient": false,
+        "suggested_action": "propose a lens"
+      }
+    },
+    "a1-oci-tests": {
+      "H_Y_bits": 0.9235551632490466,
+      "admitted": [
+        "bge-m3-sparse"
+      ],
+      "assay_blake3": "07d17ba4fbecc937b66fd2dd866d526044eb48f81156b9b6fd5800aaf653bca0",
+      "eligible_standalone": [
+        "all-minilm-l6-v2",
+        "all-mpnet-base-v2",
+        "allenai-specter",
+        "answerai-colbert-small",
+        "arctic-embed-l-v2",
+        "bge-base-en-v1.5",
+        "bge-financial-matryoshka",
+        "bge-m3-colbert",
+        "bge-m3-dense",
+        "bge-m3-sparse",
+        "code-static-sensors",
+        "code-structure-signature",
+        "codebert-mean",
+        "colbertv2",
+        "e5-base-v2",
+        "e5-multilingual-base",
+        "e5-multilingual-small",
+        "finbert-mean",
+        "granite-278m-multilingual",
+        "granite-english-r2",
+        "gte-base",
+        "gte-modernbert-base",
+        "gte-moderncolbert",
+        "legal-bert-mean",
+        "medembed-base",
+        "mxbai-embed-large-v1",
+        "nomic-modernbert-embed",
+        "opensearch-sparse-doc-v2",
+        "paraphrase-multilingual-minilm",
+        "potion-base-8m",
+        "pubmedbert-embeddings",
+        "qwen3-embedding-0.6b",
+        "record-vector",
+        "scalar-raw",
+        "scibert-mean",
+        "specter2-base",
+        "splade-pp-en-v1",
+        "text-char-trigram",
+        "text-stylometry",
+        "unixcoder-mean"
+      ],
+      "n": 1993,
+      "n_eff": 1.0,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 0.9235551632490466,
+        "I_panel_bits": 0.16754457852857702,
+        "I_panel_lcb": 0.14787451676198954,
+        "deficit_bits": 0.7560105847204697,
+        "deficit_split": {
+          "bge-m3-sparse": 0.7560105847204697
+        },
+        "sufficient": false,
+        "suggested_action": "propose a lens"
+      }
+    },
+    "a2-wikidata-p106": {
+      "H_Y_bits": 3.584962500721156,
+      "admitted": [
+        "splade-pp-en-v1"
+      ],
+      "assay_blake3": "e32b6f2bc41e3a1a91f7f71a03cb22d5eb2385400bd851a68c6c3cda82925596",
+      "eligible_standalone": [
+        "all-minilm-l6-v2",
+        "all-mpnet-base-v2",
+        "allenai-specter",
+        "answerai-colbert-small",
+        "arctic-embed-l-v2",
+        "bge-base-en-v1.5",
+        "bge-financial-matryoshka",
+        "bge-m3-colbert",
+        "bge-m3-dense",
+        "bge-m3-sparse",
+        "codebert-mean",
+        "colbertv2",
+        "e5-base-v2",
+        "e5-multilingual-base",
+        "e5-multilingual-small",
+        "emotion-distilroberta",
+        "finbert-mean",
+        "fineweb-edu-classifier",
+        "granite-278m-multilingual",
+        "granite-english-r2",
+        "gte-base",
+        "gte-modernbert-base",
+        "gte-moderncolbert",
+        "legal-bert-mean",
+        "medembed-base",
+        "mxbai-embed-large-v1",
+        "nomic-modernbert-embed",
+        "opensearch-sparse-doc-v2",
+        "paraphrase-multilingual-minilm",
+        "potion-base-8m",
+        "pubmedbert-embeddings",
+        "qwen3-embedding-0.6b",
+        "record-vector",
+        "roberta-go-emotions",
+        "scalar-log1p",
+        "scalar-raw",
+        "scibert-mean",
+        "specter2-base",
+        "splade-pp-en-v1",
+        "text-char-trigram",
+        "text-stylometry",
+        "toxic-bert",
+        "twitter-roberta-sentiment",
+        "unixcoder-mean",
+        "xlmr-language-detection"
+      ],
+      "n": 1992,
+      "n_eff": 1.0,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 3.584962500721156,
+        "I_panel_bits": 2.470983226127967,
+        "I_panel_lcb": 2.389651255171639,
+        "deficit_bits": 1.1139792745931891,
+        "deficit_split": {
+          "splade-pp-en-v1": 1.1139792745931891
+        },
+        "sufficient": false,
+        "suggested_action": "propose a lens"
+      }
+    },
+    "a2-wikidata-p17": {
+      "H_Y_bits": 3.584962500721156,
+      "admitted": [
+        "opensearch-sparse-doc-v2"
+      ],
+      "assay_blake3": "03332687f14e0f3476d7ce29116a05f6a2057ccaa03450400f7397a73b128623",
+      "eligible_standalone": [
+        "all-minilm-l6-v2",
+        "all-mpnet-base-v2",
+        "allenai-specter",
+        "answerai-colbert-small",
+        "arctic-embed-l-v2",
+        "bge-base-en-v1.5",
+        "bge-financial-matryoshka",
+        "bge-m3-colbert",
+        "bge-m3-dense",
+        "bge-m3-sparse",
+        "chatgpt-detector-roberta",
+        "codebert-mean",
+        "colbertv2",
+        "e5-base-v2",
+        "e5-multilingual-base",
+        "e5-multilingual-small",
+        "emotion-distilroberta",
+        "finbert-mean",
+        "formality-ranker",
+        "gpt2-nll",
+        "granite-278m-multilingual",
+        "granite-english-r2",
+        "gte-base",
+        "gte-modernbert-base",
+        "gte-moderncolbert",
+        "legal-bert-mean",
+        "length-signature",
+        "medembed-base",
+        "mxbai-embed-large-v1",
+        "nomic-modernbert-embed",
+        "opensearch-sparse-doc-v2",
+        "paraphrase-multilingual-minilm",
+        "potion-base-8m",
+        "pubmedbert-embeddings",
+        "qwen3-embedding-0.6b",
+        "record-vector",
+        "roberta-cola",
+        "roberta-go-emotions",
+        "scalar-log1p",
+        "scalar-minmax",
+        "scalar-rank",
+        "scalar-raw",
+        "scalar-robust",
+        "scalar-winsor",
+        "scalar-z",
+        "scibert-mean",
+        "specter2-base",
+        "splade-pp-en-v1",
+        "text-char-trigram",
+        "text-hash-tfidf",
+        "text-stylometry",
+        "toxic-bert",
+        "twitter-roberta-sentiment",
+        "unixcoder-mean",
+        "xlmr-language-detection"
+      ],
+      "n": 1992,
+      "n_eff": 1.0,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 3.584962500721156,
+        "I_panel_bits": 3.3825969916009653,
+        "I_panel_lcb": 3.349691585603878,
+        "deficit_bits": 0.2023655091201908,
+        "deficit_split": {
+          "opensearch-sparse-doc-v2": 0.2023655091201908
+        },
+        "sufficient": false,
+        "suggested_action": "propose a lens"
+      }
+    },
+    "a2-wikidata-p31": {
+      "H_Y_bits": 3.584962500721156,
+      "admitted": [
+        "splade-pp-en-v1",
+        "kg-relation-signature"
+      ],
+      "assay_blake3": "99c157d9e3bfd7db30e87fd6f522f390fc2ddab9525a2863d88dbf46b5378a74",
+      "eligible_standalone": [
+        "all-minilm-l6-v2",
+        "all-mpnet-base-v2",
+        "allenai-specter",
+        "answerai-colbert-small",
+        "arctic-embed-l-v2",
+        "bge-base-en-v1.5",
+        "bge-financial-matryoshka",
+        "bge-m3-colbert",
+        "bge-m3-dense",
+        "bge-m3-sparse",
+        "chatgpt-detector-roberta",
+        "codebert-mean",
+        "colbertv2",
+        "e5-base-v2",
+        "e5-multilingual-base",
+        "e5-multilingual-small",
+        "emotion-distilroberta",
+        "finbert-mean",
+        "fineweb-edu-classifier",
+        "formality-ranker",
+        "granite-278m-multilingual",
+        "granite-english-r2",
+        "gte-base",
+        "gte-modernbert-base",
+        "gte-moderncolbert",
+        "kg-neighbour-classes",
+        "kg-relation-signature",
+        "legal-bert-mean",
+        "length-signature",
+        "medembed-base",
+        "mxbai-embed-large-v1",
+        "nomic-modernbert-embed",
+        "opensearch-sparse-doc-v2",
+        "paraphrase-multilingual-minilm",
+        "potion-base-8m",
+        "pubmedbert-embeddings",
+        "qwen3-embedding-0.6b",
+        "record-vector",
+        "roberta-go-emotions",
+        "scalar-log1p",
+        "scalar-minmax",
+        "scalar-rank",
+        "scalar-raw",
+        "scalar-robust",
+        "scalar-winsor",
+        "scalar-z",
+        "scibert-mean",
+        "specter2-base",
+        "splade-pp-en-v1",
+        "text-char-trigram",
+        "text-hash-tfidf",
+        "text-stylometry",
+        "toxic-bert",
+        "twitter-roberta-sentiment",
+        "unixcoder-mean",
+        "xlmr-language-detection"
+      ],
+      "n": 1992,
+      "n_eff": 1.8682597545382578,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 3.584962500721156,
+        "I_panel_bits": 3.4163211878964925,
+        "I_panel_lcb": 3.385078015281026,
+        "deficit_bits": 0.16864131282466355,
+        "deficit_split": {
+          "kg-relation-signature": 0.045580434294237374,
+          "splade-pp-en-v1": 0.12306087853042617
+        },
+        "sufficient": false,
+        "suggested_action": "propose a lens"
+      }
+    },
+    "a2-wikidata-p31-rare": {
+      "H_Y_bits": 3.584962500721156,
+      "admitted": [
+        "splade-pp-en-v1"
+      ],
+      "assay_blake3": "01bac81643cc7eb9bc427b8a5b5f927271ea811e8db91c399b8cd178dee36d73",
+      "eligible_standalone": [
+        "all-minilm-l6-v2",
+        "all-mpnet-base-v2",
+        "allenai-specter",
+        "answerai-colbert-small",
+        "arctic-embed-l-v2",
+        "bge-base-en-v1.5",
+        "bge-financial-matryoshka",
+        "bge-m3-colbert",
+        "bge-m3-dense",
+        "bge-m3-sparse",
+        "chatgpt-detector-roberta",
+        "codebert-mean",
+        "colbertv2",
+        "e5-base-v2",
+        "e5-multilingual-base",
+        "e5-multilingual-small",
+        "emotion-distilroberta",
+        "finbert-mean",
+        "fineweb-edu-classifier",
+        "formality-ranker",
+        "gpt2-nll",
+        "granite-278m-multilingual",
+        "granite-english-r2",
+        "gte-base",
+        "gte-modernbert-base",
+        "gte-moderncolbert",
+        "legal-bert-mean",
+        "length-signature",
+        "medembed-base",
+        "mxbai-embed-large-v1",
+        "nomic-modernbert-embed",
+        "opensearch-sparse-doc-v2",
+        "paraphrase-multilingual-minilm",
+        "potion-base-8m",
+        "pubmedbert-embeddings",
+        "qwen3-embedding-0.6b",
+        "record-vector",
+        "roberta-cola",
+        "roberta-go-emotions",
+        "scalar-log1p",
+        "scalar-raw",
+        "scalar-robust",
+        "scalar-winsor",
+        "scalar-z",
+        "scibert-mean",
+        "specter2-base",
+        "splade-pp-en-v1",
+        "text-char-trigram",
+        "text-hash-tfidf",
+        "text-stylometry",
+        "toxic-bert",
+        "twitter-roberta-sentiment",
+        "unixcoder-mean",
+        "xlmr-language-detection"
+      ],
+      "n": 1992,
+      "n_eff": 1.0,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 3.584962500721156,
+        "I_panel_bits": 3.46072463286506,
+        "I_panel_lcb": 3.4358447182130454,
+        "deficit_bits": 0.12423786785609625,
+        "deficit_split": {
+          "splade-pp-en-v1": 0.12423786785609625
+        },
+        "sufficient": false,
+        "suggested_action": "propose a lens"
+      }
+    },
+    "a3-gdelt-dyad-7d": {
+      "H_Y_bits": 0.51921583106851,
+      "admitted": [
+        "gdelt-pair-history"
+      ],
+      "assay_blake3": "65bd9a383138ef4a8ea8088a1ed84f146c5ff64937b11875ba6fad5c7f8e9f7f",
+      "eligible_standalone": [
+        "gdelt-actor-activity",
+        "gdelt-event-recurrence",
+        "gdelt-pair-history",
+        "gdelt-pair-tone-mix"
+      ],
+      "n": 2000,
+      "n_eff": 1.0,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 0.51921583106851,
+        "I_panel_bits": 0.23756515014932483,
+        "I_panel_lcb": 0.20357155082679235,
+        "deficit_bits": 0.28165068091918516,
+        "deficit_split": {
+          "gdelt-pair-history": 0.28165068091918516
+        },
+        "sufficient": false,
+        "suggested_action": "propose a lens"
+      }
+    },
+    "a3-gdelt-next-quad": {
+      "H_Y_bits": 1.8447864829340557,
+      "admitted": [],
+      "assay_blake3": "4b5d4fb3e43df7ebb238a31d51f365b4cd13cbc3b04f9ad2cd1d186772ce1d83",
+      "eligible_standalone": [],
+      "n": 780,
+      "n_eff": null,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 1.8447864829340557,
+        "I_panel_bits": 0.0,
+        "I_panel_lcb": null,
+        "deficit_bits": 1.8447864829340557,
+        "deficit_split": {},
+        "sufficient": false,
+        "suggested_action": "add an outcome anchor or propose a lens"
+      }
+    },
+    "a4-scripture-genre": {
+      "H_Y_bits": 3.169925001442312,
+      "admitted": [
+        "scalar-winsor",
+        "splade-pp-en-v1"
+      ],
+      "assay_blake3": "5065c34a403a20f8c4e95ba1ebf93549bbd657949adfa66607485e5482174c6f",
+      "eligible_standalone": [
+        "all-minilm-l6-v2",
+        "all-mpnet-base-v2",
+        "answerai-colbert-small",
+        "arctic-embed-l-v2",
+        "bge-base-en-v1.5",
+        "bge-financial-matryoshka",
+        "bge-m3-colbert",
+        "bge-m3-dense",
+        "bge-m3-sparse",
+        "codebert-mean",
+        "colbertv2",
+        "e5-base-v2",
+        "e5-multilingual-base",
+        "e5-multilingual-small",
+        "emotion-distilroberta",
+        "finbert-mean",
+        "granite-278m-multilingual",
+        "granite-english-r2",
+        "gte-base",
+        "gte-modernbert-base",
+        "gte-moderncolbert",
+        "hash-highcard",
+        "legal-bert-mean",
+        "length-signature",
+        "medembed-base",
+        "mxbai-embed-large-v1",
+        "nomic-modernbert-embed",
+        "onehot-lowcard",
+        "paraphrase-multilingual-minilm",
+        "potion-base-8m",
+        "provenance-source-class",
+        "qwen3-embedding-0.6b",
+        "record-vector",
+        "roberta-go-emotions",
+        "scalar-log1p",
+        "scalar-minmax",
+        "scalar-rank",
+        "scalar-raw",
+        "scalar-robust",
+        "scalar-winsor",
+        "scalar-z",
+        "splade-pp-en-v1",
+        "text-char-trigram",
+        "text-stylometry",
+        "toxic-bert",
+        "twitter-roberta-sentiment",
+        "unixcoder-mean",
+        "xlmr-language-detection"
+      ],
+      "n": 1998,
+      "n_eff": 1.999239237107429,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 3.169925001442312,
+        "I_panel_bits": 1.5151924111755786,
+        "I_panel_lcb": 1.439898513591568,
+        "deficit_bits": 1.6547325902667336,
+        "deficit_split": {
+          "scalar-winsor": 0.21982921319595358,
+          "splade-pp-en-v1": 1.4349033770707802
+        },
+        "sufficient": false,
+        "suggested_action": "propose a lens"
+      }
+    },
+    "a5-gdelt-sources": {
+      "H_Y_bits": 0.6667737919919465,
+      "admitted": [
+        "gdelt-event-recurrence",
+        "gdelt-actor-activity"
+      ],
+      "assay_blake3": "7bbfa1eef85d6fb8340a9ec85e256b957dc24bea46ba013fbbacd582eae221ab",
+      "eligible_standalone": [
+        "gdelt-actor-activity",
+        "gdelt-event-recurrence",
+        "gdelt-pair-history"
+      ],
+      "n": 2000,
+      "n_eff": 1.8981008996476427,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 0.6667737919919465,
+        "I_panel_bits": 0.3034333525618564,
+        "I_panel_lcb": 0.2701608970116741,
+        "deficit_bits": 0.36334043943009015,
+        "deficit_split": {
+          "gdelt-actor-activity": 0.20173983368897574,
+          "gdelt-event-recurrence": 0.16160060574111443
+        },
+        "sufficient": false,
+        "suggested_action": "propose a lens"
+      }
+    },
+    "a6-cuyahoga-cite-tier": {
+      "H_Y_bits": 1.584962500721156,
+      "admitted": [
+        "record-vector"
+      ],
+      "assay_blake3": "e8331bc84d44ab7a982dac2c2d59bc3cf74600f3c944c726a89012e31201da7a",
+      "eligible_standalone": [
+        "all-mpnet-base-v2",
+        "allenai-specter",
+        "answerai-colbert-small",
+        "arctic-embed-l-v2",
+        "bge-financial-matryoshka",
+        "chatgpt-detector-roberta",
+        "codebert-mean",
+        "colbertv2",
+        "e5-base-v2",
+        "e5-multilingual-base",
+        "e5-multilingual-small",
+        "emotion-distilroberta",
+        "finbert-mean",
+        "formality-ranker",
+        "gpt2-nll",
+        "granite-english-r2",
+        "gte-moderncolbert",
+        "hash-highcard",
+        "legal-bert-mean",
+        "length-signature",
+        "mxbai-embed-large-v1",
+        "nomic-modernbert-embed",
+        "onehot-lowcard",
+        "opensearch-sparse-doc-v2",
+        "paraphrase-multilingual-minilm",
+        "potion-base-8m",
+        "provenance-source-class",
+        "pubmedbert-embeddings",
+        "record-vector",
+        "roberta-cola",
+        "roberta-go-emotions",
+        "scalar-log1p",
+        "scalar-minmax",
+        "scalar-raw",
+        "scalar-robust",
+        "scalar-winsor",
+        "scalar-z",
+        "scibert-mean",
+        "specter2-base",
+        "text-char-trigram",
+        "text-stylometry",
+        "twitter-roberta-sentiment",
+        "unixcoder-mean",
+        "xlmr-language-detection"
+      ],
+      "n": 1998,
+      "n_eff": 1.0,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 1.584962500721156,
+        "I_panel_bits": 0.5539833690801358,
+        "I_panel_lcb": 0.5138946508598373,
+        "deficit_bits": 1.0309791316410202,
+        "deficit_split": {
+          "record-vector": 1.0309791316410202
+        },
+        "sufficient": false,
+        "suggested_action": "propose a lens"
+      }
+    },
+    "a6-cuyahoga-cited": {
+      "H_Y_bits": 1.0,
+      "admitted": [
+        "record-vector"
+      ],
+      "assay_blake3": "d97c98828aab87bad73161463a41f1a8a66b2226d1a3577d4891087a08bfae47",
+      "eligible_standalone": [
+        "all-mpnet-base-v2",
+        "allenai-specter",
+        "answerai-colbert-small",
+        "arctic-embed-l-v2",
+        "bge-financial-matryoshka",
+        "bge-m3-dense",
+        "bge-m3-sparse",
+        "chatgpt-detector-roberta",
+        "cite-out-signature",
+        "code-static-sensors",
+        "codebert-mean",
+        "colbertv2",
+        "e5-base-v2",
+        "e5-multilingual-base",
+        "e5-multilingual-small",
+        "emotion-distilroberta",
+        "finbert-mean",
+        "formality-ranker",
+        "gpt2-nll",
+        "granite-278m-multilingual",
+        "granite-english-r2",
+        "gte-base",
+        "gte-modernbert-base",
+        "gte-moderncolbert",
+        "hash-highcard",
+        "legal-bert-mean",
+        "length-signature",
+        "medembed-base",
+        "mxbai-embed-large-v1",
+        "nomic-modernbert-embed",
+        "onehot-lowcard",
+        "opensearch-sparse-doc-v2",
+        "paraphrase-multilingual-minilm",
+        "potion-base-8m",
+        "provenance-source-class",
+        "pubmedbert-embeddings",
+        "record-vector",
+        "roberta-cola",
+        "roberta-go-emotions",
+        "scalar-log1p",
+        "scalar-minmax",
+        "scalar-rank",
+        "scalar-raw",
+        "scalar-robust",
+        "scalar-winsor",
+        "scibert-mean",
+        "specter2-base",
+        "text-char-trigram",
+        "text-stylometry",
+        "toxic-bert",
+        "twitter-roberta-sentiment",
+        "unixcoder-mean",
+        "xlmr-language-detection"
+      ],
+      "n": 2000,
+      "n_eff": 1.0,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 1.0,
+        "I_panel_bits": 0.5374730259981736,
+        "I_panel_lcb": 0.5040416076006397,
+        "deficit_bits": 0.4625269740018264,
+        "deficit_split": {
+          "record-vector": 0.4625269740018264
+        },
+        "sufficient": false,
+        "suggested_action": "propose a lens"
+      }
+    }
+  },
+  "frozen_at": "2026-10-16T11:35:36Z",
+  "gates": {
+    "candidates_ge_40": true,
+    "candidates_with_contracts_and_probes": 72,
+    "every_registered_lens_probe_byte_identical": true,
+    "families_served_ge3": false,
+    "families_served_ge5_lenses": [],
+    "families_sufficient": [],
+    "questions_served_ge5_lenses": [],
+    "registration_failures": {},
+    "sufficiency_reported_per_family": true
+  },
+  "host": "aiwonder",
+  "invariants": {
+    "admission_ledger_seq": 376,
+    "calibration_ledger_seq": 372,
+    "cpu_fallback": false,
+    "dtype": "f32",
+    "lens_count": 9,
+    "lens_ids_blake3": "88bc4984e48eae9530a273a7659f567b4476954497ed387c0497b89ac67391de",
+    "registry_blake3": "eb210e220bd29c919931cc63ba4e8804bf6f475e06fc99a381b58b6e66cc41b6",
+    "runtime": {
+      "cuda": "13.0",
+      "deterministic": true,
+      "device": "NVIDIA GeForce RTX 5090",
+      "resident_before": "pid, process_name, used_gpu_memory [MiB]\n",
+      "torch": "2.14.1+cu130"
+    },
+    "weights_sha256": {
+      "bge-m3-sparse": "5e73adeb723d906bbc748a8c964e3b376f9e41a3f22c471d9e7e40272a4d74eb",
+      "gdelt-actor-activity": "76ac9330f8ca04f66e564bf85ae5fe10f0362183c52979cd630c940b7f444b81",
+      "gdelt-event-recurrence": "76ac9330f8ca04f66e564bf85ae5fe10f0362183c52979cd630c940b7f444b81",
+      "gdelt-pair-history": "76ac9330f8ca04f66e564bf85ae5fe10f0362183c52979cd630c940b7f444b81",
+      "kg-relation-signature": "76ac9330f8ca04f66e564bf85ae5fe10f0362183c52979cd630c940b7f444b81",
+      "opensearch-sparse-doc-v2": "cef23baf5da0809dca7a3fe26e8c34035fba9982bc7ffbf37f3e1a02a97072fa",
+      "record-vector": "1b84e7f554e046d459d77b3f7eb783709ccdb2e3165feedbbb1820f0b6eab476",
+      "scalar-winsor": "1b84e7f554e046d459d77b3f7eb783709ccdb2e3165feedbbb1820f0b6eab476",
+      "splade-pp-en-v1": "d83db28db1cbb689f64680f6317cf85bcbdbeb365e7c1153f356fe60aa22394d"
+    }
+  },
+  "ledger_head": "075eb0d1428e17a5904ef29b03dc1e8391169d0bd26b8f1efcaf92f61c82e7f1",
+  "ledger_seq": 377,
+  "lenses": [
+    {
+      "admitted_for": [
+        "a1-oci-tests",
+        "a1-oci-outcome3"
+      ],
+      "bits": {
+        "a1-oci-outcome3": {
+          "bits_mean": 0.20665649876032038,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 0.17927250098276187,
+          "n_used": 1993,
+          "ucb_max": 0.29657762487621414
+        },
+        "a1-oci-tests": {
+          "bits_mean": 0.10984083035888836,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 0.08540196890862281,
+          "n_used": 1993,
+          "ucb_max": 0.17189002715370186
+        }
+      },
+      "contract": {
+        "corpus_hash": "5617a9f61b028005a4858fdac845db406aefb181",
+        "dtype": "f32",
+        "kind": "sparse",
+        "max_len": 1024,
+        "max_windows": 8,
+        "modality": "text",
+        "name": "bge-m3-sparse",
+        "norm": "none",
+        "pool": null,
+        "prefix": "",
+        "repo": "BAAI/bge-m3",
+        "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+        "shape": "Sparse(250002)",
+        "weight_files": [
+          "colbert_linear.pt",
+          "pytorch_model.bin",
+          "sparse_linear.pt"
+        ],
+        "weights_sha256": "5e73adeb723d906bbc748a8c964e3b376f9e41a3f22c471d9e7e40272a4d74eb"
+      },
+      "lens_id": "44466b82b2f1bca5cb2774cd4c559b75",
+      "name": "bge-m3-sparse",
+      "probe": {
+        "batch_invariance_max_abs": 1.9744038581848145e-06,
+        "byte_identical": true,
+        "n": 64
+      }
+    },
+    {
+      "admitted_for": [
+        "a5-gdelt-sources"
+      ],
+      "bits": {
+        "a5-gdelt-sources": {
+          "bits_mean": 0.19882849772755234,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 0.16199406429894725,
+          "n_used": 2000,
+          "ucb_max": 0.2511900000929187
+        }
+      },
+      "contract": {
+        "corpus_hash": "gdelt-events-90d",
+        "dtype": "f32",
+        "encoders_blake3": "5da3410ac641b8740d89688056ebdcdc9d613edc0d5668a4dc36d56a02282578",
+        "inputs": "context",
+        "kind": "encoder",
+        "modality": "record",
+        "name": "gdelt-actor-activity",
+        "norm": "declared(per lens)",
+        "shape": "Dense(var)",
+        "sim": "neg_cheb",
+        "weight_files": [
+          "scripts/lens/encoders_ctx.py"
+        ],
+        "weights_sha256": "76ac9330f8ca04f66e564bf85ae5fe10f0362183c52979cd630c940b7f444b81"
+      },
+      "lens_id": "65e90a4b8a043dba19b501bee20d86d0",
+      "name": "gdelt-actor-activity",
+      "probe": {
+        "batch_invariance_max_abs": 0.0,
+        "byte_identical": true,
+        "n": 64
+      }
+    },
+    {
+      "admitted_for": [
+        "a5-gdelt-sources"
+      ],
+      "bits": {
+        "a5-gdelt-sources": {
+          "bits_mean": 0.2506984435972111,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 0.220987644826473,
+          "n_used": 2000,
+          "ucb_max": 0.28020194278927624
+        }
+      },
+      "contract": {
+        "corpus_hash": "gdelt-events-90d",
+        "dtype": "f32",
+        "encoders_blake3": "5da3410ac641b8740d89688056ebdcdc9d613edc0d5668a4dc36d56a02282578",
+        "inputs": "context",
+        "kind": "encoder",
+        "modality": "record",
+        "name": "gdelt-event-recurrence",
+        "norm": "declared(per lens)",
+        "shape": "Dense(var)",
+        "sim": "neg_cheb",
+        "weight_files": [
+          "scripts/lens/encoders_ctx.py"
+        ],
+        "weights_sha256": "76ac9330f8ca04f66e564bf85ae5fe10f0362183c52979cd630c940b7f444b81"
+      },
+      "lens_id": "7bbf920bfdd442fc565736cee243db28",
+      "name": "gdelt-event-recurrence",
+      "probe": {
+        "batch_invariance_max_abs": 0.0,
+        "byte_identical": true,
+        "n": 64
+      }
+    },
+    {
+      "admitted_for": [
+        "a3-gdelt-dyad-7d"
+      ],
+      "bits": {
+        "a3-gdelt-dyad-7d": {
+          "bits_mean": 0.23756515014932483,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 0.20357155082679235,
+          "n_used": 2000,
+          "ucb_max": 0.2726566838861483
+        }
+      },
+      "contract": {
+        "corpus_hash": "gdelt-events-90d",
+        "dtype": "f32",
+        "encoders_blake3": "5da3410ac641b8740d89688056ebdcdc9d613edc0d5668a4dc36d56a02282578",
+        "inputs": "context",
+        "kind": "encoder",
+        "modality": "record",
+        "name": "gdelt-pair-history",
+        "norm": "declared(per lens)",
+        "shape": "Dense(var)",
+        "sim": "neg_cheb",
+        "weight_files": [
+          "scripts/lens/encoders_ctx.py"
+        ],
+        "weights_sha256": "76ac9330f8ca04f66e564bf85ae5fe10f0362183c52979cd630c940b7f444b81"
+      },
+      "lens_id": "104ab3deb9b9d856a0b13c184a6f3beb",
+      "name": "gdelt-pair-history",
+      "probe": {
+        "batch_invariance_max_abs": 0.0,
+        "byte_identical": true,
+        "n": 64
+      }
+    },
+    {
+      "admitted_for": [
+        "a2-wikidata-p31"
+      ],
+      "bits": {
+        "a2-wikidata-p31": {
+          "bits_mean": 3.1329822011709694,
+          "coverage": 0.9573293172690763,
+          "fingerprint_suspect": null,
+          "lcb_min": 3.0837594616282087,
+          "n_used": 1907,
+          "ucb_max": 3.182779945078601
+        }
+      },
+      "contract": {
+        "corpus_hash": "wikidata5m",
+        "dtype": "f32",
+        "encoders_blake3": "5da3410ac641b8740d89688056ebdcdc9d613edc0d5668a4dc36d56a02282578",
+        "inputs": "context",
+        "kind": "encoder",
+        "modality": "record",
+        "name": "kg-relation-signature",
+        "norm": "declared(per lens)",
+        "shape": "Dense(var)",
+        "sim": "cosine",
+        "weight_files": [
+          "scripts/lens/encoders_ctx.py"
+        ],
+        "weights_sha256": "76ac9330f8ca04f66e564bf85ae5fe10f0362183c52979cd630c940b7f444b81"
+      },
+      "lens_id": "0a9061627f088e5e2a60ba9cf469272d",
+      "name": "kg-relation-signature",
+      "probe": {
+        "batch_invariance_max_abs": 0.0,
+        "byte_identical": true,
+        "n": 64
+      }
+    },
+    {
+      "admitted_for": [
+        "a2-wikidata-p17"
+      ],
+      "bits": {
+        "a2-wikidata-p17": {
+          "bits_mean": 2.151878881971992,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 2.035608497408863,
+          "n_used": 1992,
+          "ucb_max": 2.5428233638448283
+        }
+      },
+      "contract": {
+        "corpus_hash": "8921a26c78b8559d6604eb1f5c0b74c079bee38f",
+        "dtype": "f32",
+        "kind": "sparse",
+        "max_len": 512,
+        "max_windows": 8,
+        "modality": "text",
+        "name": "opensearch-sparse-doc-v2",
+        "norm": "none",
+        "pool": null,
+        "prefix": "",
+        "repo": "opensearch-project/opensearch-neural-sparse-encoding-doc-v2-distill",
+        "revision": "8921a26c78b8559d6604eb1f5c0b74c079bee38f",
+        "shape": "Sparse(30522)",
+        "weight_files": [
+          "model.safetensors",
+          "pytorch_model.bin",
+          "query_0_SparseStaticEmbedding/model.safetensors"
+        ],
+        "weights_sha256": "cef23baf5da0809dca7a3fe26e8c34035fba9982bc7ffbf37f3e1a02a97072fa"
+      },
+      "lens_id": "f889dbd8aa1bc41fedc5a3e155e3ad63",
+      "name": "opensearch-sparse-doc-v2",
+      "probe": {
+        "batch_invariance_max_abs": 6.16908073425293e-06,
+        "byte_identical": true,
+        "n": 64
+      }
+    },
+    {
+      "admitted_for": [
+        "a6-cuyahoga-cited",
+        "a6-cuyahoga-cite-tier"
+      ],
+      "bits": {
+        "a6-cuyahoga-cite-tier": {
+          "bits_mean": 0.5539833690801358,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 0.5138946508598373,
+          "n_used": 1998,
+          "ucb_max": 0.6237346923133178
+        },
+        "a6-cuyahoga-cited": {
+          "bits_mean": 0.5374730259981736,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 0.5040416076006397,
+          "n_used": 2000,
+          "ucb_max": 0.5959033603362229
+        }
+      },
+      "contract": {
+        "corpus_hash": "none",
+        "dtype": "f32",
+        "encoders_blake3": "f8c6c4666f264c01c97eb8b3be3e38b057514c2de3901798f125d6fb9695eb46",
+        "inputs": "fields",
+        "kind": "encoder",
+        "modality": "record",
+        "name": "record-vector",
+        "norm": "declared(per lens)",
+        "shape": "Dense(var)",
+        "sim": "cosine",
+        "weight_files": [
+          "scripts/lens/encoders.py"
+        ],
+        "weights_sha256": "1b84e7f554e046d459d77b3f7eb783709ccdb2e3165feedbbb1820f0b6eab476"
+      },
+      "lens_id": "b425573543cf5b55d83de2816828bce8",
+      "name": "record-vector",
+      "probe": {
+        "batch_invariance_max_abs": 0.0,
+        "byte_identical": true,
+        "n": 64
+      }
+    },
+    {
+      "admitted_for": [
+        "a4-scripture-genre"
+      ],
+      "bits": {
+        "a4-scripture-genre": {
+          "bits_mean": 1.1595410846819267,
+          "coverage": 1.0,
+          "fingerprint_suspect": false,
+          "lcb_min": 1.0554483704596542,
+          "n_used": 1998,
+          "ucb_max": 1.4070426294731873
+        }
+      },
+      "contract": {
+        "corpus_hash": "none",
+        "dtype": "f32",
+        "encoders_blake3": "f8c6c4666f264c01c97eb8b3be3e38b057514c2de3901798f125d6fb9695eb46",
+        "inputs": "fields",
+        "kind": "encoder",
+        "modality": "record",
+        "name": "scalar-winsor",
+        "norm": "declared(per lens)",
+        "shape": "Dense(var)",
+        "sim": "neg_cheb",
+        "weight_files": [
+          "scripts/lens/encoders.py"
+        ],
+        "weights_sha256": "1b84e7f554e046d459d77b3f7eb783709ccdb2e3165feedbbb1820f0b6eab476"
+      },
+      "lens_id": "f93e9621a68e03a5f71d9d251062e7d7",
+      "name": "scalar-winsor",
+      "probe": {
+        "batch_invariance_max_abs": 0.0,
+        "byte_identical": true,
+        "n": 64
+      }
+    },
+    {
+      "admitted_for": [
+        "a2-wikidata-p31",
+        "a4-scripture-genre",
+        "a2-wikidata-p106",
+        "a2-wikidata-p31-rare"
+      ],
+      "bits": {
+        "a2-wikidata-p106": {
+          "bits_mean": 0.48670379475870157,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 0.3332559502046158,
+          "n_used": 1992,
+          "ucb_max": 0.6951469691396085
+        },
+        "a2-wikidata-p31": {
+          "bits_mean": 1.15412701923797,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 1.0232591084331724,
+          "n_used": 1992,
+          "ucb_max": 1.55560100080093
+        },
+        "a2-wikidata-p31-rare": {
+          "bits_mean": 1.2532550846711445,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 1.1643345851267748,
+          "n_used": 1992,
+          "ucb_max": 1.5895641325729621
+        },
+        "a4-scripture-genre": {
+          "bits_mean": 0.16917533720689543,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 0.0903705711234844,
+          "n_used": 1998,
+          "ucb_max": 0.24144695909655017
+        }
+      },
+      "contract": {
+        "corpus_hash": "762be6a7206e2f299182705972a65e5c46e62be2",
+        "dtype": "f32",
+        "kind": "sparse",
+        "max_len": 512,
+        "max_windows": 8,
+        "modality": "text",
+        "name": "splade-pp-en-v1",
+        "norm": "none",
+        "pool": null,
+        "prefix": "",
+        "repo": "prithivida/Splade_PP_en_v1",
+        "revision": "762be6a7206e2f299182705972a65e5c46e62be2",
+        "shape": "Sparse(30522)",
+        "weight_files": [
+          "pytorch_model.bin"
+        ],
+        "weights_sha256": "d83db28db1cbb689f64680f6317cf85bcbdbeb365e7c1153f356fe60aa22394d"
+      },
+      "lens_id": "8d0806221341b81a37f25d1881cf22c2",
+      "name": "splade-pp-en-v1",
+      "probe": {
+        "batch_invariance_max_abs": 1.004338264465332e-05,
+        "byte_identical": true,
+        "n": 64
+      }
+    }
+  ],
+  "panel_blake3": "c62eb816b7dec0de7f454e564c9991159076c0ad46655d22013009091f4e5ff7",
+  "panel_version": "panel-p0-v4",
+  "population_version": "p0-v1",
+  "superseded_panel_blake3": "2c1c299d3fd8deb75c10e9078dff4a688bafdf2f1b20bb1acc971228fba8c882"
+}

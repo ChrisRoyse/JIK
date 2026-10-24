@@ -1,0 +1,15 @@
+{
+  "schema": "evaluation-source-capture-v1",
+  "raw_manifest_sha256": "5f192740e93456b109a2b8bab762ca8be9a35827ce58c5a2bfb199a4c7e2660a",
+  "domains": ["general", "biomedical", "legal", "finance", "science", "encyclopedic"],
+  "target_documents_per_source": 512,
+  "selection_seed": 20261019,
+  "history": {
+    "text-pilot-v1": "8364eb0f732c73de0705a73ed4ed7c003710a7077a95b0bc4207d193b2db395f",
+    "text-pilot-v2": "b5c1f4aa98b2b9803cdc1edea5400cd5aa5dfdc793acd0c7d1ae1b81dd02d8ff",
+    "text-pilot-v3": "a786887e7bd7acda9b6b68cc6e9753e523a5192536b5056259e8892e0f68f3c2"
+  },
+  "text_scope": "complete text field; finance all 20 named sections as separate fields",
+  "selection": "first occurrence of each document ID; bottom SHA256(seed,domain,document_id), excluding history IDs",
+  "sealed_evaluation": false
+}

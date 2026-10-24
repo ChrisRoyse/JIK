@@ -1,0 +1,253 @@
+{
+  "contract": "fields-v1",
+  "note": "Per-source field plans (spec section 18): every explicit field keeps its exact value beside any encoding; kinds: scalar (numeric normalisation family), cyclic, categorical (one-hot or hashing by cardinality), ordinal, set, reference (identity is lineage, never a model input), text-label (a natural-language label gets a text lens as well), clock (declared clock role; retrieval-only until it earns bits), free-text (latent, embedded). A numeric field may never be routed to free-text.",
+  "sources": {
+    "fineweb-edu-sample-10BT": {
+      "explicit": {
+        "dump": "categorical",
+        "file_path": "reference",
+        "id": "reference",
+        "int_score": "ordinal",
+        "language": "categorical",
+        "language_score": "scalar",
+        "score": "scalar",
+        "token_count": "scalar",
+        "url": "reference"
+      },
+      "latent": [
+        "text"
+      ]
+    },
+    "nemotron-cc-high-actual-slice": {
+      "explicit": {
+        "language": "categorical",
+        "url": "reference",
+        "warc_record_id": "reference"
+      },
+      "latent": [
+        "text"
+      ]
+    },
+    "nemotron-cc-high-synthetic-twins": {
+      "explicit": {
+        "language": "categorical",
+        "url": "reference",
+        "warc_record_id": "reference",
+        "twin_of": "reference"
+      },
+      "latent": [
+        "text"
+      ]
+    },
+    "wikipedia-en-20231101": {
+      "explicit": {
+        "id": "reference",
+        "title": "text-label",
+        "url": "reference"
+      },
+      "latent": [
+        "text"
+      ]
+    },
+    "opencodeinstruct": {
+      "explicit": {
+        "average_test_score": "scalar",
+        "domain": "categorical",
+        "generation_algorithm": "categorical",
+        "id": "reference",
+        "llm_judgement": "free-text",
+        "tests_execution_status": "categorical",
+        "unit_tests": "free-text"
+      },
+      "latent": [
+        "text"
+      ]
+    },
+    "cuyahoga-eighth-district": {
+      "explicit": {
+        "anchors": "set",
+        "cluster_id": "reference",
+        "court_id": "categorical",
+        "date_filed": "clock",
+        "docket_id": "reference",
+        "opinion_id": "reference"
+      },
+      "latent": [
+        "text"
+      ],
+      "clocks": {
+        "date_filed": "coordinate"
+      }
+    },
+    "gdelt-events-90d": {
+      "explicit": {
+        "ActionGeo_CountryCode": "categorical",
+        "ActionGeo_Lat": "scalar",
+        "ActionGeo_Long": "scalar",
+        "Actor1Code": "categorical",
+        "Actor2Code": "categorical",
+        "AvgTone": "scalar",
+        "DATEADDED": "clock",
+        "Day": "clock",
+        "EventCode": "categorical",
+        "GlobalEventID": "reference",
+        "GoldsteinScale": "scalar",
+        "NumMentions": "scalar",
+        "NumSources": "scalar",
+        "QuadClass": "categorical",
+        "SOURCEURL": "reference",
+        "file": "reference"
+      },
+      "latent": [],
+      "clocks": {
+        "Day": "coordinate",
+        "DATEADDED": "receipt"
+      }
+    },
+    "wikidata5m": {
+      "explicit": {
+        "aliases": "set",
+        "entity_id": "reference",
+        "id": "reference",
+        "member": "reference"
+      },
+      "latent": [
+        "text"
+      ]
+    },
+    "plant-v1": {
+      "explicit": {},
+      "latent": [
+        "text"
+      ]
+    },
+    "scripture-common": {
+      "explicit": {
+        "book": "categorical",
+        "categories": "set",
+        "chapter": "ordinal",
+        "depth": "ordinal",
+        "driver": "categorical",
+        "dstrong": "reference",
+        "edition": "categorical",
+        "editions": "set",
+        "estrong": "reference",
+        "file": "reference",
+        "from_ref": "reference",
+        "genre": "categorical",
+        "gloss": "set",
+        "heRef": "reference",
+        "ketiv": "set",
+        "kind": "categorical",
+        "lang": "categorical",
+        "lemma": "text-label",
+        "licence": "categorical",
+        "line": "ordinal",
+        "marker": "categorical",
+        "module_version": "categorical",
+        "morph": "set",
+        "node": "ordinal",
+        "para": "categorical",
+        "path": "set",
+        "ref": "reference",
+        "relation": "text-label",
+        "role": "categorical",
+        "scheme": "categorical",
+        "section": "text-label",
+        "seg": "ordinal",
+        "sigla": "scalar",
+        "speaker": "categorical",
+        "strongs": "set",
+        "testament": "categorical",
+        "title": "text-label",
+        "to_ref": "reference",
+        "translit": "text-label",
+        "types": "set",
+        "ustrong": "reference",
+        "verse": "ordinal",
+        "versification": "categorical",
+        "versionSource": "reference",
+        "versionTitle": "text-label",
+        "votes": "scalar",
+        "words": "scalar"
+      },
+      "latent": [
+        "text"
+      ]
+    },
+    "identity-v1": {
+      "explicit": {
+        "anchor_refs": "set",
+        "book": "categorical",
+        "canon_row": "reference",
+        "chapter": "ordinal",
+        "conduct": "free-text",
+        "corrections": "set",
+        "edition": "categorical",
+        "end": "scalar",
+        "enforce": "categorical",
+        "falsified_by": "free-text",
+        "grades": "free-text",
+        "guard": "free-text",
+        "id": "reference",
+        "mode": "categorical",
+        "operator_direction": "free-text",
+        "refs": "set",
+        "refs_expanded": "set",
+        "response": "free-text",
+        "roles": "set",
+        "rules": "set",
+        "scenario": "reference",
+        "section": "text-label",
+        "source_file": "reference",
+        "span": "ordinal",
+        "speaker": "categorical",
+        "standards": "set",
+        "standing": "free-text",
+        "start": "scalar",
+        "tag": "categorical",
+        "title": "text-label",
+        "trigger": "free-text",
+        "type": "categorical",
+        "user_example": "free-text",
+        "reply_example": "free-text",
+        "verse": "ordinal",
+        "books": "text-label",
+        "frame": "text-label",
+        "canon_anchors": "free-text",
+        "measured": "free-text",
+        "inverts": "free-text",
+        "replaces": "free-text",
+        "supports": "free-text",
+        "hard_rules": "text-label",
+        "echo": "free-text",
+        "not_chosen": "free-text",
+        "exposes": "set",
+        "statement": "free-text",
+        "ref": "reference"
+      },
+      "latent": [
+        "text"
+      ]
+    }
+  },
+  "scripture_sources": [
+    "ebible-english",
+    "berean-bsb",
+    "open-english-bible",
+    "unfoldingword-uhb",
+    "unfoldingword-ugnt",
+    "unfoldingword-ult",
+    "unfoldingword-ust",
+    "tanach-us-uxlc",
+    "sblgnt",
+    "byztxt-rp2018",
+    "nestle1904",
+    "ubsicap-versification",
+    "crosswire-sword-pd",
+    "openbible-crossrefs",
+    "sefaria-export",
+    "sefaria-export-nc",
+    "stepbible-data"
+  ]
+}

@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+# MNLM repository-integrity gate. Install with:
+#   powershell -NoProfile -ExecutionPolicy Bypass -File scripts/install-mnlm-git-guards.ps1
+set -euo pipefail
+
+repo_root="$(git rev-parse --show-toplevel)"
+
+if ! diff_check="$(git diff --cached --check 2>&1)"; then
+  printf '%s\n' '{"ok":false,"code":"MNLM_STAGED_DIFF_INVALID","message":"staged changes contain conflict markers or whitespace errors"}' >&2
+  printf '%s\n' "$diff_check" >&2
+  exit 1
+fi
+
+if [[ -n "$(git ls-files -u)" ]]; then
+  printf '%s\n' '{"ok":false,"code":"MNLM_UNMERGED_INDEX","message":"the Git index contains unresolved merge stages"}' >&2
+  exit 1
+fi
+
+mapfile -t remotes < <(git remote)
+if [[ "${#remotes[@]}" -ne 1 || "${remotes[0]}" != "origin" ]]; then
+  printf '%s\n' '{"ok":false,"code":"MNLM_REMOTE_SET_INVALID","message":"the only permitted remote is origin -> ChrisRoyse/MNLM"}' >&2
+  exit 1
+fi
+
+is_mnlm_url() {
+  local normalized
+  normalized="$(printf '%s' "$1" | tr '[:upper:]' '[:lower:]')"
+  case "$normalized" in
+    https://github.com/chrisroyse/mnlm|https://github.com/chrisroyse/mnlm.git|https://github.com/chrisroyse/jik|https://github.com/chrisroyse/jik.git|\
+    git@github.com:chrisroyse/mnlm|git@github.com:chrisroyse/mnlm.git|git@github.com:chrisroyse/jik|git@github.com:chrisroyse/jik.git|\
+    ssh://git@github.com/chrisroyse/mnlm|ssh://git@github.com/chrisroyse/mnlm.git|ssh://git@github.com/chrisroyse/jik|ssh://git@github.com/chrisroyse/jik.git)
+      return 0 ;;
+    *) return 1 ;;
+  esac
+}
+
+for direction in fetch push; do
+  if [[ "$direction" == "push" ]]; then
+    mapfile -t urls < <(git remote get-url --push --all origin)
+  else
+    mapfile -t urls < <(git remote get-url --all origin)
+  fi
+  for url in "${urls[@]}"; do
+    if ! is_mnlm_url "$url"; then
+      printf '%s\n' "{\"ok\":false,\"code\":\"MNLM_WRONG_ORIGIN\",\"message\":\"origin $direction url '$url' is not ChrisRoyse/MNLM\"}" >&2
+      exit 1
+    fi
+  done
+done
+
+# Secrets never enter the repo: private keys, passwords, tokens (names are fine, values are not).
+mapfile -t staged < <(git diff --cached --name-only --diff-filter=ACM)
+for f in "${staged[@]}"; do
+  case "$f" in
+    *.pub) continue ;;
+  esac
+  if git show ":$f" | grep -qE -- '-----BEGIN (OPENSSH|RSA|EC|DSA) PRIVATE KEY-----'; then
+    printf '%s\n' "{\"ok\":false,\"code\":\"MNLM_SECRET_IN_COMMIT\",\"message\":\"private key material staged in $f\"}" >&2
+    exit 1
+  fi
+  if git show ":$f" | grep -qE '^(AIWONDER_(SSH|SUDO|VPN)_PASSWORD|HF_TOKEN|HF_HUB_TOKEN)=[^[:space:]]+'; then
+    printf '%s\n' "{\"ok\":false,\"code\":\"MNLM_SECRET_IN_COMMIT\",\"message\":\"a secret value is staged in $f; commit names only\"}" >&2
+    exit 1
+  fi
+  if git show ":$f" | grep -qE 'hf_[A-Za-z0-9]{30,}|ghp_[A-Za-z0-9]{30,}|gho_[A-Za-z0-9]{30,}'; then
+    printf '%s\n' "{\"ok\":false,\"code\":\"MNLM_SECRET_IN_COMMIT\",\"message\":\"an API token pattern is staged in $f\"}" >&2
+    exit 1
+  fi
+done
+
+# Source files stay under the 500-line ceiling (doctrine §8). Docs and the spec are exempt.
+for f in "${staged[@]}"; do
+  case "$f" in
+    *.py|*.rs|*.sh|*.ps1|*.ts|*.js)
+      lines="$(git show ":$f" | wc -l)"
+      if (( lines > 500 )); then
+        printf '%s\n' "{\"ok\":false,\"code\":\"MNLM_FILE_TOO_LONG\",\"message\":\"$f has $lines lines; the ceiling is 500 (doctrine §8)\"}" >&2
+        exit 1
+      fi ;;
+  esac
+done
+
+exit 0

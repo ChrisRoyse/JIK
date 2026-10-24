@@ -1,0 +1,19 @@
+{
+  "schema": "ucr-forecast-plan-v1",
+  "purpose": "recorded_temporal_diagnostic",
+  "source": "bridge-v2-rlds",
+  "export_sha256": "ec14c9c757227ab1798d2c67a49252e8f0768bc01c12e84bb99058e83335fde6",
+  "rows": 23702,
+  "horizon": 8,
+  "fields": ["state_component_0", "state_component_1", "state_component_2", "state_component_3", "state_component_4", "state_component_5", "state_component_6"],
+  "ordinal_field": "step_index",
+  "ordinal_unit": "sequence_index",
+  "seed": 42,
+  "split_tenths": [6, 2, 2],
+  "selection": "one_pair_per_unit; minimum_identity_hash; no_outcome_filter",
+  "series": "locator_source_and_shard; contiguous_zero_based_rows",
+  "label": "future_minus_current; exact_sign; no_physical_units_claim",
+  "allow_channels": ["surface", "fields", "structure", "provenance", "perception"],
+  "assumptions": "collection_split_prevents_shared_collection; IID_unproven; command_timing_uncommissioned",
+  "admission": false
+}

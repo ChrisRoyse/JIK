@@ -1,0 +1,3 @@
+# MNLM audio frontend addon; use the project's host-specific frozen GPU runtime.
+# The runtime/decoder versions are included in every audio instrument identity.
+soundfile==0.14.0

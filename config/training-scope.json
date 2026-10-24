@@ -1,0 +1,47 @@
+{
+  "contract": "mnlm-training-scope-v1",
+  "operator_direction": "2026-10-22: authorize retained Cuyahoga/Ohio legal source-growth experiment; preserve the 2026-10-17 default exclusion and historical admissions outside that explicit experiment",
+  "authorized_experiments": {
+    "legal-source-growth-20261022": {
+      "sources": ["cuyahoga-eighth-district", "ohio-supreme-court"],
+      "direction": "Use retained legal records on aiwonder to measure associations and the effect of a larger dataset on the predictor",
+      "record": "https://github.com/ChrisRoyse/MNLM/issues/29#issuecomment-6353090718",
+      "scope": "source-relative sequence learning, association/kernel coverage and matched predictor growth; no outcome-oracle or lens admission",
+      "historical_exposure_preserved": true
+    }
+  },
+  "excluded_sources": {
+    "cuyahoga-eighth-district": "Historical Leapable/Calyx data; not part of the MNLM training base. Retain old artifacts as audit evidence."
+  },
+  "excluded_questions": ["a6-cuyahoga-cited", "a6-cuyahoga-cite-tier", "a6-cuyahoga-cited-cohort"],
+  "base_selection_status": "operator_delegated_recommendations; bounded_physical_observation_pilot_selected; scientific_admission_pending",
+  "delegated_decisions": {
+    "direction": "2026-10-17: continue and for all decisions go with your recommendation",
+    "record": "https://github.com/ChrisRoyse/MNLM/issues/3#issuecomment-6232430707",
+    "bridge_source": "bridge-v2-rlds",
+    "bridge_proposal_sha256": "ce43d85b9167146d2829a2566fb776fe96b503cd8a1284d5e675902018528057",
+    "bridge_shards": 12,
+    "bridge_max_bytes": 2147483648,
+    "existing_non_law_sources": "candidate design/calibration with explicit leakage controls; former admissions remain retired"
+  },
+  "bounded_acquisition": {
+    "approval": "https://github.com/ChrisRoyse/MNLM/issues/3#issuecomment-6228620298",
+    "trajectory_source": "swe-agent-trajectories",
+    "trajectory_shards": 1,
+    "trajectory_max_bytes": 268435456,
+    "trajectory_inspection_rows": 128,
+    "audio_source": "web-audio-mpj",
+    "audio_complete_chapters": 2,
+    "audio_max_bytes": 67108864,
+    "total_max_bytes": 335544320,
+    "excluded_acquisitions": ["DROID"],
+    "admission": "provisional; source approval does not admit a lens or certify meaning"
+  },
+  "selection_criteria": [
+    "Independent observations through reusable channels, not embedding count",
+    "Grounded outcomes with label-unit and temporal leakage controls",
+    "Observed behaviour distinguishable from generated answers and oracle tests",
+    "Explicit source provenance, rights, clocks, relationships and missing channels",
+    "Source holdout transfer and earlier-source retention under one frozen panel"
+  ]
+}

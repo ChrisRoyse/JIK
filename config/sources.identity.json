@@ -1,0 +1,23 @@
+{
+  "census_version": "identity-v1",
+  "window_end_utc": "2026-10-15",
+  "note": "Identity partition (issue #10, operator direction 2026-10-15: the model's identity is Jesus Christ; the whole Bible is his identity; the profile is to be formatted for training). The raw files are AUTHORED, not downloaded: scripts/identity/build_identity.py joins config/identity/*.jsonl (standard, rules, hard rules, corrections, scenarios, audiences, anchors, canon frames, gap-fills, voice) with the sealed scripture-v1 World English Bible shard so that every record carries the verse text it stands on, and extracts every speaker span of Jesus as an exemplar. The census hashes the files in place on each host; the Stage 1 FSV re-resolves every anchor against the sealed canon.",
+  "sources": [
+    {
+      "id": "identity-v1",
+      "kind": "identity-authored",
+      "access": {
+        "type": "by-host",
+        "aiwonder": {"type": "local-authored", "path": "/zfs/archive/mnlm/raw/identity-v1"},
+        "cabdru": {"type": "local-authored", "path": "D:/MNLMData/raw/identity-v1"}
+      },
+      "licence": "authored for MNLM at the operator's direction (issue #10); verse quotations are the World English Bible (public domain) as sealed in scripture-v1",
+      "consent": "operator-authored content; no third-party text other than the public-domain WEB",
+      "declared": {"record_files": ["records.jsonl", "exemplars.jsonl", "sft.jsonl", "profile.md"], "profile_sha256": "5f839acceb76bd4bd2db269af9651b0df9e072b4a001588068434391a42ea4f6", "note": "counts are a build output (BUILD.json), never declared here"},
+      "fields": {"explicit": ["id", "type", "enforce", "tag", "title", "refs", "refs_expanded", "anchor_refs", "trigger", "response", "conduct", "guard", "falsified_by", "rules", "corrections", "standards", "section", "ref", "book", "chapter", "verse", "span", "speaker", "edition", "scenario", "roles", "source_file"], "latent": ["text"]},
+      "clocks": {"built_utc": "revision (BUILD.json)"},
+      "anchors": ["A7", "A2", "A6"],
+      "role": "the identity standard S, its hard rules, decision rules, corrections, scenario set (A7 seed), audiences and voice, each anchored to verses of the sealed verifier (A2 same-meaning across editions through the ref, A6 citation graph)"
+    }
+  ]
+}

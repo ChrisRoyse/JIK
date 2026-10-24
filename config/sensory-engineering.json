@@ -1,0 +1,19 @@
+{
+  "schema": "sensory-training-v1",
+  "purpose": "engineering_surface_decoder",
+  "model": {
+    "width": 32,
+    "heads": 4,
+    "layers": 1,
+    "vocabulary": 258,
+    "max_prefix": 32,
+    "max_native_tokens": 8192,
+    "max_native_elements": 16000000,
+    "max_attention_elements": 16000000,
+    "max_parameters": 8000000,
+    "checkpoint_bytes": 67108864
+  },
+  "steps": 5,
+  "learning_rate": 0.002,
+  "seed": 25
+}

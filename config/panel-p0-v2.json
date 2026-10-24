@@ -1,0 +1,580 @@
+{
+  "contract": "panel-v1",
+  "families": {
+    "a1-oci-tests": {
+      "H_Y_bits": 0.9235551632490466,
+      "admitted": [
+        "bge-m3-sparse"
+      ],
+      "assay_blake3": "a3743e2ab929b3df0ce58004a731a167632a6030a2f333242fc0c65917d9772d",
+      "eligible_standalone": [
+        "all-minilm-l6-v2",
+        "all-mpnet-base-v2",
+        "allenai-specter",
+        "answerai-colbert-small",
+        "arctic-embed-l-v2",
+        "bge-base-en-v1.5",
+        "bge-financial-matryoshka",
+        "bge-m3-colbert",
+        "bge-m3-dense",
+        "bge-m3-sparse",
+        "code-structure-signature",
+        "codebert-mean",
+        "colbertv2",
+        "e5-base-v2",
+        "e5-multilingual-base",
+        "e5-multilingual-small",
+        "finbert-mean",
+        "granite-278m-multilingual",
+        "granite-english-r2",
+        "gte-base",
+        "gte-modernbert-base",
+        "gte-moderncolbert",
+        "legal-bert-mean",
+        "medembed-base",
+        "mxbai-embed-large-v1",
+        "nomic-modernbert-embed",
+        "opensearch-sparse-doc-v2",
+        "paraphrase-multilingual-minilm",
+        "potion-base-8m",
+        "pubmedbert-embeddings",
+        "qwen3-embedding-0.6b",
+        "record-vector",
+        "scalar-raw",
+        "scibert-mean",
+        "specter2-base",
+        "splade-pp-en-v1",
+        "text-char-trigram",
+        "text-stylometry",
+        "unixcoder-mean"
+      ],
+      "n": 1993,
+      "n_eff": 1.0,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 0.9235551632490466,
+        "I_panel_bits": 0.16754457852857702,
+        "I_panel_lcb": 0.14787451676198954,
+        "deficit_bits": 0.7560105847204697,
+        "deficit_split": {
+          "bge-m3-sparse": 0.7560105847204697
+        },
+        "sufficient": false,
+        "suggested_action": "propose a lens"
+      }
+    },
+    "a2-wikidata-p31": {
+      "H_Y_bits": 3.584962500721156,
+      "admitted": [
+        "splade-pp-en-v1"
+      ],
+      "assay_blake3": "4d3c3010efe3c7f7d3dfa8a6c1d537755a84ad0c829a86ed4fbeaec146d717a7",
+      "eligible_standalone": [
+        "all-minilm-l6-v2",
+        "all-mpnet-base-v2",
+        "allenai-specter",
+        "answerai-colbert-small",
+        "arctic-embed-l-v2",
+        "bge-base-en-v1.5",
+        "bge-financial-matryoshka",
+        "bge-m3-colbert",
+        "bge-m3-dense",
+        "bge-m3-sparse",
+        "chatgpt-detector-roberta",
+        "codebert-mean",
+        "colbertv2",
+        "e5-base-v2",
+        "e5-multilingual-base",
+        "e5-multilingual-small",
+        "emotion-distilroberta",
+        "finbert-mean",
+        "fineweb-edu-classifier",
+        "formality-ranker",
+        "granite-278m-multilingual",
+        "granite-english-r2",
+        "gte-base",
+        "gte-modernbert-base",
+        "gte-moderncolbert",
+        "legal-bert-mean",
+        "medembed-base",
+        "mxbai-embed-large-v1",
+        "nomic-modernbert-embed",
+        "opensearch-sparse-doc-v2",
+        "paraphrase-multilingual-minilm",
+        "potion-base-8m",
+        "pubmedbert-embeddings",
+        "qwen3-embedding-0.6b",
+        "roberta-go-emotions",
+        "scibert-mean",
+        "specter2-base",
+        "splade-pp-en-v1",
+        "text-char-trigram",
+        "text-hash-tfidf",
+        "text-stylometry",
+        "toxic-bert",
+        "twitter-roberta-sentiment",
+        "unixcoder-mean",
+        "xlmr-language-detection"
+      ],
+      "n": 1992,
+      "n_eff": 1.0,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 3.584962500721156,
+        "I_panel_bits": 3.3467453609746003,
+        "I_panel_lcb": 3.315961503224647,
+        "deficit_bits": 0.23821713974655578,
+        "deficit_split": {
+          "splade-pp-en-v1": 0.23821713974655578
+        },
+        "sufficient": false,
+        "suggested_action": "propose a lens"
+      }
+    },
+    "a3-gdelt-dyad-7d": {
+      "H_Y_bits": 0.51921583106851,
+      "admitted": [
+        "gdelt-actor-activity"
+      ],
+      "assay_blake3": "4b437de5fd042c4d9d7cb56b3ff3a11957aeabfbbe91b9dbeb80cc37e8a08813",
+      "eligible_standalone": [
+        "gdelt-actor-activity"
+      ],
+      "n": 2000,
+      "n_eff": 1.0,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 0.51921583106851,
+        "I_panel_bits": 0.17172939136093118,
+        "I_panel_lcb": 0.1354763020401038,
+        "deficit_bits": 0.3474864397075788,
+        "deficit_split": {
+          "gdelt-actor-activity": 0.3474864397075788
+        },
+        "sufficient": false,
+        "suggested_action": "propose a lens"
+      }
+    },
+    "a4-scripture-genre": {
+      "H_Y_bits": 3.169925001442312,
+      "admitted": [
+        "scalar-winsor",
+        "splade-pp-en-v1"
+      ],
+      "assay_blake3": "36e42dd26d7c98cdf8a698d79c015a3450a01eb8731ed17f7271524d701dac04",
+      "eligible_standalone": [
+        "all-minilm-l6-v2",
+        "all-mpnet-base-v2",
+        "answerai-colbert-small",
+        "arctic-embed-l-v2",
+        "bge-base-en-v1.5",
+        "bge-financial-matryoshka",
+        "bge-m3-colbert",
+        "bge-m3-dense",
+        "bge-m3-sparse",
+        "codebert-mean",
+        "colbertv2",
+        "e5-base-v2",
+        "e5-multilingual-base",
+        "e5-multilingual-small",
+        "emotion-distilroberta",
+        "finbert-mean",
+        "granite-278m-multilingual",
+        "granite-english-r2",
+        "gte-base",
+        "gte-modernbert-base",
+        "gte-moderncolbert",
+        "legal-bert-mean",
+        "medembed-base",
+        "mxbai-embed-large-v1",
+        "nomic-modernbert-embed",
+        "paraphrase-multilingual-minilm",
+        "potion-base-8m",
+        "qwen3-embedding-0.6b",
+        "record-vector",
+        "roberta-go-emotions",
+        "scalar-log1p",
+        "scalar-minmax",
+        "scalar-rank",
+        "scalar-raw",
+        "scalar-robust",
+        "scalar-winsor",
+        "scalar-z",
+        "splade-pp-en-v1",
+        "text-char-trigram",
+        "text-stylometry",
+        "toxic-bert",
+        "twitter-roberta-sentiment",
+        "unixcoder-mean",
+        "xlmr-language-detection"
+      ],
+      "n": 1998,
+      "n_eff": 1.999239237107429,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 3.169925001442312,
+        "I_panel_bits": 1.5151924111755786,
+        "I_panel_lcb": 1.439898513591568,
+        "deficit_bits": 1.6547325902667336,
+        "deficit_split": {
+          "scalar-winsor": 0.21982921319595358,
+          "splade-pp-en-v1": 1.4349033770707802
+        },
+        "sufficient": false,
+        "suggested_action": "propose a lens"
+      }
+    },
+    "a5-gdelt-sources": {
+      "H_Y_bits": 0.6667737919919465,
+      "admitted": [
+        "gdelt-actor-activity"
+      ],
+      "assay_blake3": "99f4c55ecc1cdaf6a8c2c1dd3e57c668600906edd5db946cacf84b93d6344268",
+      "eligible_standalone": [
+        "gdelt-actor-activity"
+      ],
+      "n": 2000,
+      "n_eff": 1.0,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 0.6667737919919465,
+        "I_panel_bits": 0.19882849772755234,
+        "I_panel_lcb": 0.16199406429894725,
+        "deficit_bits": 0.4679452942643942,
+        "deficit_split": {
+          "gdelt-actor-activity": 0.4679452942643942
+        },
+        "sufficient": false,
+        "suggested_action": "propose a lens"
+      }
+    },
+    "a6-cuyahoga-cited": {
+      "H_Y_bits": 1.0,
+      "admitted": [
+        "record-vector"
+      ],
+      "assay_blake3": "eb961f7d5952c028787f5888127bc2dc84dd8a113c8ce9e5e2cf88291e1d5939",
+      "eligible_standalone": [
+        "all-mpnet-base-v2",
+        "allenai-specter",
+        "answerai-colbert-small",
+        "arctic-embed-l-v2",
+        "bge-financial-matryoshka",
+        "bge-m3-dense",
+        "bge-m3-sparse",
+        "chatgpt-detector-roberta",
+        "codebert-mean",
+        "colbertv2",
+        "e5-base-v2",
+        "e5-multilingual-base",
+        "e5-multilingual-small",
+        "emotion-distilroberta",
+        "finbert-mean",
+        "formality-ranker",
+        "gpt2-nll",
+        "granite-278m-multilingual",
+        "granite-english-r2",
+        "gte-base",
+        "gte-modernbert-base",
+        "gte-moderncolbert",
+        "legal-bert-mean",
+        "length-signature",
+        "medembed-base",
+        "mxbai-embed-large-v1",
+        "nomic-modernbert-embed",
+        "opensearch-sparse-doc-v2",
+        "paraphrase-multilingual-minilm",
+        "potion-base-8m",
+        "pubmedbert-embeddings",
+        "record-vector",
+        "roberta-cola",
+        "roberta-go-emotions",
+        "scalar-log1p",
+        "scalar-minmax",
+        "scalar-raw",
+        "scalar-robust",
+        "scibert-mean",
+        "specter2-base",
+        "text-char-trigram",
+        "text-stylometry",
+        "toxic-bert",
+        "twitter-roberta-sentiment",
+        "unixcoder-mean",
+        "xlmr-language-detection"
+      ],
+      "n": 2000,
+      "n_eff": 1.0,
+      "served": false,
+      "sufficiency": {
+        "H_Y_bits": 1.0,
+        "I_panel_bits": 0.5374730259981736,
+        "I_panel_lcb": 0.5040416076006397,
+        "deficit_bits": 0.4625269740018264,
+        "deficit_split": {
+          "record-vector": 0.4625269740018264
+        },
+        "sufficient": false,
+        "suggested_action": "propose a lens"
+      }
+    }
+  },
+  "frozen_at": "2026-10-16T08:14:07Z",
+  "gates": {
+    "candidates_ge_40": true,
+    "candidates_with_contracts_and_probes": 72,
+    "every_registered_lens_probe_byte_identical": true,
+    "families_served_ge3": false,
+    "families_served_ge5_lenses": [],
+    "families_sufficient": [],
+    "registration_failures": {},
+    "sufficiency_reported_per_family": true
+  },
+  "host": "aiwonder",
+  "invariants": {
+    "admission_ledger_seq": 370,
+    "calibration_ledger_seq": 356,
+    "cpu_fallback": false,
+    "dtype": "f32",
+    "lens_count": 5,
+    "lens_ids_blake3": "4d29e9a3648f0e21b1606275fe5dbdf75e06e9c134fa8d784a54461c817d4191",
+    "registry_blake3": "9dfe4d9094212b6dfdad3c4418103d82fe1db2e502a2feded422b46e87b1d787",
+    "runtime": {
+      "cuda": "13.0",
+      "deterministic": true,
+      "device": "NVIDIA GeForce RTX 5090",
+      "resident_before": "pid, process_name, used_gpu_memory [MiB]\n",
+      "torch": "2.14.1+cu130"
+    },
+    "weights_sha256": {
+      "bge-m3-sparse": "5e73adeb723d906bbc748a8c964e3b376f9e41a3f22c471d9e7e40272a4d74eb",
+      "gdelt-actor-activity": "76ac9330f8ca04f66e564bf85ae5fe10f0362183c52979cd630c940b7f444b81",
+      "record-vector": "1b84e7f554e046d459d77b3f7eb783709ccdb2e3165feedbbb1820f0b6eab476",
+      "scalar-winsor": "1b84e7f554e046d459d77b3f7eb783709ccdb2e3165feedbbb1820f0b6eab476",
+      "splade-pp-en-v1": "d83db28db1cbb689f64680f6317cf85bcbdbeb365e7c1153f356fe60aa22394d"
+    }
+  },
+  "ledger_head": "9da180d9af61ba2fb2f781461407feb99ad09edf2d822978a8733dbe6d942533",
+  "ledger_seq": 371,
+  "lenses": [
+    {
+      "admitted_for": [
+        "a1-oci-tests"
+      ],
+      "bits": {
+        "a1-oci-tests": {
+          "bits_mean": 0.10984083035888836,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 0.08540196890862281,
+          "n_used": 1993,
+          "ucb_max": 0.17189002715370186
+        }
+      },
+      "contract": {
+        "corpus_hash": "5617a9f61b028005a4858fdac845db406aefb181",
+        "dtype": "f32",
+        "kind": "sparse",
+        "max_len": 1024,
+        "max_windows": 8,
+        "modality": "text",
+        "name": "bge-m3-sparse",
+        "norm": "none",
+        "pool": null,
+        "prefix": "",
+        "repo": "BAAI/bge-m3",
+        "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+        "shape": "Sparse(250002)",
+        "weight_files": [
+          "colbert_linear.pt",
+          "pytorch_model.bin",
+          "sparse_linear.pt"
+        ],
+        "weights_sha256": "5e73adeb723d906bbc748a8c964e3b376f9e41a3f22c471d9e7e40272a4d74eb"
+      },
+      "lens_id": "44466b82b2f1bca5cb2774cd4c559b75",
+      "name": "bge-m3-sparse",
+      "probe": {
+        "batch_invariance_max_abs": 1.9744038581848145e-06,
+        "byte_identical": true,
+        "n": 64
+      }
+    },
+    {
+      "admitted_for": [
+        "a3-gdelt-dyad-7d",
+        "a5-gdelt-sources"
+      ],
+      "bits": {
+        "a3-gdelt-dyad-7d": {
+          "bits_mean": 0.17172939136093118,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 0.1354763020401038,
+          "n_used": 2000,
+          "ucb_max": 0.21738285239724972
+        },
+        "a5-gdelt-sources": {
+          "bits_mean": 0.19882849772755234,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 0.16199406429894725,
+          "n_used": 2000,
+          "ucb_max": 0.2511900000929187
+        }
+      },
+      "contract": {
+        "corpus_hash": "gdelt-events-90d",
+        "dtype": "f32",
+        "encoders_blake3": "5da3410ac641b8740d89688056ebdcdc9d613edc0d5668a4dc36d56a02282578",
+        "inputs": "context",
+        "kind": "encoder",
+        "modality": "record",
+        "name": "gdelt-actor-activity",
+        "norm": "declared(per lens)",
+        "shape": "Dense(var)",
+        "sim": "neg_cheb",
+        "weight_files": [
+          "scripts/lens/encoders_ctx.py"
+        ],
+        "weights_sha256": "76ac9330f8ca04f66e564bf85ae5fe10f0362183c52979cd630c940b7f444b81"
+      },
+      "lens_id": "65e90a4b8a043dba19b501bee20d86d0",
+      "name": "gdelt-actor-activity",
+      "probe": {
+        "batch_invariance_max_abs": 0.0,
+        "byte_identical": true,
+        "n": 64
+      }
+    },
+    {
+      "admitted_for": [
+        "a6-cuyahoga-cited"
+      ],
+      "bits": {
+        "a6-cuyahoga-cited": {
+          "bits_mean": 0.5374730259981736,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 0.5040416076006397,
+          "n_used": 2000,
+          "ucb_max": 0.5959033603362229
+        }
+      },
+      "contract": {
+        "corpus_hash": "none",
+        "dtype": "f32",
+        "encoders_blake3": "f8c6c4666f264c01c97eb8b3be3e38b057514c2de3901798f125d6fb9695eb46",
+        "inputs": "fields",
+        "kind": "encoder",
+        "modality": "record",
+        "name": "record-vector",
+        "norm": "declared(per lens)",
+        "shape": "Dense(var)",
+        "sim": "cosine",
+        "weight_files": [
+          "scripts/lens/encoders.py"
+        ],
+        "weights_sha256": "1b84e7f554e046d459d77b3f7eb783709ccdb2e3165feedbbb1820f0b6eab476"
+      },
+      "lens_id": "b425573543cf5b55d83de2816828bce8",
+      "name": "record-vector",
+      "probe": {
+        "batch_invariance_max_abs": 0.0,
+        "byte_identical": true,
+        "n": 64
+      }
+    },
+    {
+      "admitted_for": [
+        "a4-scripture-genre"
+      ],
+      "bits": {
+        "a4-scripture-genre": {
+          "bits_mean": 1.1595410846819267,
+          "coverage": 1.0,
+          "fingerprint_suspect": false,
+          "lcb_min": 1.0554483704596542,
+          "n_used": 1998,
+          "ucb_max": 1.4070426294731873
+        }
+      },
+      "contract": {
+        "corpus_hash": "none",
+        "dtype": "f32",
+        "encoders_blake3": "f8c6c4666f264c01c97eb8b3be3e38b057514c2de3901798f125d6fb9695eb46",
+        "inputs": "fields",
+        "kind": "encoder",
+        "modality": "record",
+        "name": "scalar-winsor",
+        "norm": "declared(per lens)",
+        "shape": "Dense(var)",
+        "sim": "neg_cheb",
+        "weight_files": [
+          "scripts/lens/encoders.py"
+        ],
+        "weights_sha256": "1b84e7f554e046d459d77b3f7eb783709ccdb2e3165feedbbb1820f0b6eab476"
+      },
+      "lens_id": "f93e9621a68e03a5f71d9d251062e7d7",
+      "name": "scalar-winsor",
+      "probe": {
+        "batch_invariance_max_abs": 0.0,
+        "byte_identical": true,
+        "n": 64
+      }
+    },
+    {
+      "admitted_for": [
+        "a2-wikidata-p31",
+        "a4-scripture-genre"
+      ],
+      "bits": {
+        "a2-wikidata-p31": {
+          "bits_mean": 1.15412701923797,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 1.0232591084331724,
+          "n_used": 1992,
+          "ucb_max": 1.55560100080093
+        },
+        "a4-scripture-genre": {
+          "bits_mean": 0.16917533720689543,
+          "coverage": 1.0,
+          "fingerprint_suspect": null,
+          "lcb_min": 0.0903705711234844,
+          "n_used": 1998,
+          "ucb_max": 0.24144695909655017
+        }
+      },
+      "contract": {
+        "corpus_hash": "762be6a7206e2f299182705972a65e5c46e62be2",
+        "dtype": "f32",
+        "kind": "sparse",
+        "max_len": 512,
+        "max_windows": 8,
+        "modality": "text",
+        "name": "splade-pp-en-v1",
+        "norm": "none",
+        "pool": null,
+        "prefix": "",
+        "repo": "prithivida/Splade_PP_en_v1",
+        "revision": "762be6a7206e2f299182705972a65e5c46e62be2",
+        "shape": "Sparse(30522)",
+        "weight_files": [
+          "pytorch_model.bin"
+        ],
+        "weights_sha256": "d83db28db1cbb689f64680f6317cf85bcbdbeb365e7c1153f356fe60aa22394d"
+      },
+      "lens_id": "8d0806221341b81a37f25d1881cf22c2",
+      "name": "splade-pp-en-v1",
+      "probe": {
+        "batch_invariance_max_abs": 1.004338264465332e-05,
+        "byte_identical": true,
+        "n": 64
+      }
+    }
+  ],
+  "panel_blake3": "2cf8ce43fea6579b88bdec693c8e542b482a3917c18ea8b16e6a6fbca8241289",
+  "panel_version": "panel-p0-v2",
+  "population_version": "p0-v1",
+  "superseded_panel_blake3": "10737be1ba959616786075300c51506728af93b35c08936ae99df078cc7d9de4"
+}
