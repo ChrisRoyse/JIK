@@ -21,12 +21,13 @@
 **Meaning Base** it learns from. Every unit of text is measured by several frozen instruments,
 each one a separate sense. The model learns over those typed measurements. Text appears only
 at the very end, and the same instruments check it before it leaves. A slot that fails its
-check becomes a refusal, not a guess. Its fixed standard is the teachings of Jesus of Nazareth,
-built into the model's own learning loop rather than added as a filter.
+check becomes a refusal, not a guess. Its fixed standard is the teachings of Jesus of Nazareth.
+The design calls for that standard to participate in the model's own learning loop;
+learned intrinsic identity regulation is still an open milestone.
 
 > [!NOTE]
-> This is active research, not a usable model. The pipeline runs end to end at full corpus
-> scale, but output quality does not yet beat simple baselines on most tasks. Every number
+> This is active research, not a usable model. Corpus measurement and surface training now
+> run at full corpus scale; useful complete answers remain unestablished. Every number
 > below is measured from persisted bytes and checked by the session that produced it; none
 > has been independently replicated yet. See [Where it stands](#where-it-stands).
 
@@ -36,9 +37,9 @@ built into the model's own learning loop rather than added as a filter.
 
 <img src="assets/readme/tokens.jpg" width="100%" alt="Plain grey tiles lying in a heap; a few lift off and become coloured points of light joined into a constellation">
 
-Every language model today learns to continue strings of symbols. Its knowledge of what
-those symbols *mean* is only implied by its weights, and it has no built-in way to say
-"I don't know."
+Conventional language models predict continuations in a token vocabulary. This project
+explores a different learning interface: separate, frozen measurements of meaning, with
+explicit evidence and refusal gates.
 
 JIK changes what the model learns from. Text is cut into **atoms**: a sentence, a code unit, a
 docket entry, a frame window. Each atom keeps its exact source bytes and its place in the
@@ -130,8 +131,10 @@ result by repetition.
 
 <img src="assets/readme/replay.jpg" width="100%" alt="Two identical clockwork mechanisms reflected perfectly in still dark water">
 
-Every training run is replayed by a separate cold process started from the saved bytes. It
-must reproduce the weights, gradients and optimizer state exactly, not just the final score.
+Named update and restart proofs are replayed in separate cold processes from saved bytes,
+checking weights, gradients and optimizer state. The completed surface-training run has
+authenticated checkpoints and exact evaluation readback; its entire optimizer trajectory
+has not been cold-reexecuted.
 Failed runs stay on record next to their fixes. The system fails closed: no mock data, no
 fallback success, and no silent switch from GPU to CPU.
 
@@ -140,17 +143,17 @@ fallback success, and no silent switch from GPU to CPU.
 <img src="assets/readme/identity.jpg" width="100%" alt="Several rings of golden light at different heights, all beneath one bright fixed star over a hillside at dawn">
 
 JIK's standard is the teachings and conduct of Jesus of Nazareth, across the whole admitted
-scripture reference set. It is applied through the **Identity Loop** from *Reading the Loop*
-(Royse, 2026), whose five phases live inside the model's recurrent state and training
-objectives, not in a prompt or an output filter:
+scripture reference set. The intended **Identity Loop** from *Reading the Loop*
+(Royse, 2026) places five phases inside the model's recurrent state and training
+objectives. Completing and measuring that learned integration remains ahead:
 
 ```mermaid
 flowchart LR
     S["Standard"] --> C["Claim"] --> A["Act"] --> E["Echo"] --> R["Correction"] --> S
 ```
 
-Many loops run at once, one per task, relationship or question. They share the same fixed
-standard and stay separate across delayed feedback and restarts. The standard does not move;
+The design calls for concurrent loops, one per task, relationship or question, sharing a fixed
+standard while staying separate across delayed feedback and restarts. The standard does not move;
 beliefs about the world stay open to correction. JIK always identifies itself honestly as an
 AI.
 
@@ -158,7 +161,8 @@ AI.
 
 <img src="assets/readme/road.jpg" width="100%" alt="Stepping stones made of constellations leading across dark water to a lighthouse">
 
-*Snapshot of 24 October 2026. All figures measured and author-checked; not yet independently replicated.*
+*Research snapshot: 25 October 2026, 16:45 UTC. Figures are measured and author-checked;
+no independently adjudicated replication or scientific sense admission is claimed.*
 
 | | What it can do |
 |---|---|
@@ -166,19 +170,32 @@ AI.
 | | Read all 6.36 million distinct inputs with six instruments and prove every reading from the stored bytes. |
 | | Build six full association graphs (381.6 million typed edges) and walk typed evidence paths. |
 | | Train a region codebook on the full training split without collapse (13–33 % better reconstruction than constant baselines). |
-| | Generate a complete answer one constellation at a time and decide on its own when to stop (up to 132 of 170 held-out tasks). |
-| | Replay any training run exactly in a cold process; train on documents of 3,210 atoms within memory. |
-| **Partly** | Single-atom reasoning answers beat both copy and shuffled-context baselines on every sense. Longer answers do not yet. |
-| | Broader data beats repeated data by 10.9 points of region accuracy, but region prediction (37.1 %) is still below copy-the-current-atom (40.8 %). |
-| **Not yet** | Render valid free text from predicted slots. |
+| | Complete surface-decoder training on 6,547,176 TRAIN atoms over 51,150 updates. |
+| | Complete 91,540 document updates in the shared placement arm. |
+| | Execute a full 3,210-atom CPU optimizer update and exactly reproduce the named restart proof. |
+| **Partly** | On 6,434 unseen-in-TRAIN atom identities, teacher-forced byte loss is 2.169 nats with correct readings versus 3.971 with shuffled readings; 6,424 favor correct conditioning, but none reconstruct exactly. The evaluation documents were already exposed development probes. |
+| | Four of six source/split groups beat all five declared region-probability baselines. Autonomous native-output scores still lose to simple controls. |
+| | In the same small predicted-input probe, valid UTF-8 plus atom EOS rises from 0/16 to 14/16. These repeat two target atoms across eight proposals; none establishes a correct complete answer. |
+| **Not yet** | Produce useful complete free-text answers with a calibrated per-slot guard. |
 | | Hold quality when reading its own generated output. |
 | | Admit any instrument as a sense under the contract above. Until five pass, no meaning is asserted. |
 | | Calibrate the output guard; learn the Identity Loop inside the model. |
 
-**Next:** full-length answer training over the whole legal corpus with matched controls; a
-fair, capacity-matched comparison of three predictor designs; a calibrated per-slot guard;
-sense admission; then audio and vision in learning, and the full continuous-learning cycle
-the project is building toward.
+**Current work:** own-slot placement is running; whole-proposal and complete-answer
+comparisons remain downstream. Larger correction training, native output guards and
+full-task CUDA free rendering are queued stages, not completed capability results.
+Sense admission, integrated native-media learning and the complete continuous-learning
+cycle remain open.
+
+**A concrete example:** a 13-byte TRAIN-present atom, `Per Curiam.\n\n`, reconstructs
+exactly from its true readings. Predicted readings can still produce repetition such as
+"The court the court the court." Text completion and correctness are separate results.
+The previous 132/170 stopping figure came from a reference-length-bounded observer;
+it does not establish autonomous complete-answer generation.
+
+The [machine-readable research snapshot](assets/readme/research-status-2026-10-25.json)
+records these scopes and retained-report digests. It is a public summary of author-checked
+receipts, not a redistribution of the private evidence archive or an independent reproduction.
 
 ## Repository map
 

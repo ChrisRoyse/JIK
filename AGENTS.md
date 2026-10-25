@@ -1,4 +1,12 @@
-# MNLM repository operating boundary
+# JIK public snapshot operating boundary
+
+`ChrisRoyse/JIK` publishes reviewed snapshots of the private MNLM development
+tree. Export committed source bytes into JIK's own history; never merge or push
+private development history here. Keep the existing public-specific changes.
+Exclude `docs/`, local agent settings and permissions, memories, data, evidence
+archives, model weights, credentials, private host addresses and SSH key paths.
+Keep README artwork in `assets/readme/`. Scan the full proposed public tree for
+secrets before pushing, and read the remote commit back after publication.
 
 MNLM builds the Meaning Base and the meaning-native language model specified in
 `docs/MEANING_BASE_SPEC_v1.0.md`; its source paper is `docs/mnlmpaper.txt`

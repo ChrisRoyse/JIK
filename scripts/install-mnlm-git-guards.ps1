@@ -19,8 +19,11 @@ function Write-Result {
 
 try {
     $repo = [IO.Path]::GetFullPath($RepoRoot).TrimEnd("\")
-    $actualRoot = (& git -C $repo rev-parse --show-toplevel 2>&1 | Select-Object -First 1)
-    if ($LASTEXITCODE -ne 0) { throw "MNLM_REPO_ROOT_INVALID: $repo is not a git repository" }
+    $actualRootOutput = @(& git -C $repo rev-parse --show-toplevel 2>&1)
+    if ($LASTEXITCODE -ne 0 -or $actualRootOutput.Count -ne 1) {
+        throw "MNLM_REPO_ROOT_INVALID: $repo is not a git repository"
+    }
+    $actualRoot = "$($actualRootOutput[0])"
     $actualRootFull = [IO.Path]::GetFullPath("$actualRoot").TrimEnd("\")
     if ($actualRootFull -ine $repo) { throw "MNLM_REPO_ROOT_INVALID: expected=$repo actual=$actualRootFull" }
 

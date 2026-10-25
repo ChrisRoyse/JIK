@@ -52,6 +52,11 @@ done
 mapfile -t staged < <(git diff --cached --name-only --diff-filter=ACM)
 for f in "${staged[@]}"; do
   case "$f" in
+    docs/*|.claude/settings*.json|.claude/agent-memory/*|.env|*/.env|*.pem)
+      printf '%s\n' "{\"ok\":false,\"code\":\"JIK_PRIVATE_PATH_FORBIDDEN\",\"message\":\"$f is excluded from the public snapshot\"}" >&2
+      exit 1 ;;
+  esac
+  case "$f" in
     *.pub) continue ;;
   esac
   if git show ":$f" | grep -qE -- '-----BEGIN (OPENSSH|RSA|EC|DSA) PRIVATE KEY-----'; then

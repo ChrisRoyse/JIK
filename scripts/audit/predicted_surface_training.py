@@ -58,22 +58,23 @@ def summarize(value):
 
 
 def fit(state,groups,key,out,*,predicted):
-    out.mkdir();model,opt=adaptation.continuation(state['config'],state['specs'],state['checkpoint'],'cpu',step=1)
+    out.mkdir();start=state['initial_step']
+    model,opt=adaptation.continuation(state['config'],state['specs'],state['checkpoint'],'cpu',step=start)
     binding=dict(code=state['code'],source=state['trace_pin'],predictor=key,
         initial=fingerprint((state['checkpoint']['after'],state['checkpoint']['optimizer'])),
         train=source.TRAIN,rule='half_true_half_predicted' if predicted else 'two_true_views',
-        policy=inversion.POLICY,scope='CPU_engineering_qualification')
+        policy=inversion.POLICY,scope='CPU_engineering_qualification',initial_step=start,decoder=state['decoder_receipt'])
     ledger=digest(canonical(binding));rows=[];checkpoints=[]
     for cursor,doc in enumerate(source.TRAIN):
-        row,profile=adaptation.update(model,opt,groups[key][doc],cursor+1,predicted=predicted)
+        row,profile=adaptation.update(model,opt,groups[key][doc],start+cursor,predicted=predicted)
         ledger=digest(canonical(dict(previous=ledger,row=row)))
-        ref=inversion.checkpoint(out/f'checkpoint-{cursor+2}.pt',model,opt,binding,cursor+1,cursor+2,ledger)
+        ref=inversion.checkpoint(out/f'checkpoint-{start+cursor+1}.pt',model,opt,binding,cursor+1,start+cursor+1,ledger)
         rows.append(dict(document=doc,update=row,profile=profile));checkpoints.append(ref)
         if cursor==0:
             before=fingerprint((model.state_dict(),opt.state_dict()))
-            restored,new_opt=adaptation.continuation(state['config'],state['specs'],state['checkpoint'],'cpu',step=1)
+            restored,new_opt=adaptation.continuation(state['config'],state['specs'],state['checkpoint'],'cpu',step=start)
             position,step,chain=inversion.restore(ref,restored,new_opt,binding,size=2)
-            need((position,step,chain)==(1,2,ledger)
+            need((position,step,chain)==(1,start+1,ledger)
                  and fingerprint((restored.state_dict(),new_opt.state_dict()))==before,'ADAPTATION_RESTART')
             model,opt=restored,new_opt
     persist(out/'updates.pt',rows);write_committed(out/'checkpoints.json',checkpoints)
@@ -84,14 +85,15 @@ def fit(state,groups,key,out,*,predicted):
 
 def controls(state,groups,traces):
     key=next(iter(groups));pair=groups[key][source.TRAIN[0]][0];held=groups[key][source.EVALUATION[0]]
-    model,opt=adaptation.continuation(state['config'],state['specs'],state['checkpoint'],'cpu',step=1)
+    start=state['initial_step']
+    model,opt=adaptation.continuation(state['config'],state['specs'],state['checkpoint'],'cpu',step=start)
     initial=fingerprint((model.state_dict(),opt.state_dict()));out={}
-    out['held_gradient']=rejected(lambda:adaptation.update(model,opt,held,1,predicted=True),'PREDICTED_SURFACE_NONTRAIN')
+    out['held_gradient']=rejected(lambda:adaptation.update(model,opt,held,start,predicted=True),'PREDICTED_SURFACE_NONTRAIN')
     bad=deepcopy(state['checkpoint']);bad['optimizer']['state']={}
-    out['missing_moments']=rejected(lambda:adaptation.continuation(state['config'],state['specs'],bad,'cpu',step=1),
+    out['missing_moments']=rejected(lambda:adaptation.continuation(state['config'],state['specs'],bad,'cpu',step=start),
                                      'INVERSION_MOMENT_COVERAGE')
     out['wrong_initial_step']=rejected(lambda:adaptation.continuation(state['config'],state['specs'],state['checkpoint'],
-        'cpu',step=2),'INVERSION_MOMENT_STATE')
+        'cpu',step=start+1),'INVERSION_MOMENT_STATE')
     out['duplicate_target']=rejected(lambda:adaptation.views([pair,pair],predicted=True),'PREDICTED_SURFACE_DUPLICATE_TARGET')
     out['invalid_mixture']=rejected(lambda:adaptation.views([pair],predicted=1),'PREDICTED_SURFACE_MIXTURE')
     row=next(r for r in traces if r['architecture']+'/'+r['proposal']==key and r['document']==source.TRAIN[0])
@@ -117,10 +119,24 @@ def controls(state,groups,traces):
     out['binding_changed']=rejected(value.fresh,'PREDICTED_SURFACE_BINDING_CHANGED')
     need(fingerprint((model.state_dict(),opt.state_dict()))==initial,'ADAPTATION_CONTROL_MUTATION')
     original=fingerprint((state['checkpoint']['after'],state['checkpoint']['optimizer']))
-    separate,separate_opt=adaptation.continuation(state['config'],state['specs'],state['checkpoint'],'cpu',step=1)
+    separate,separate_opt=adaptation.continuation(state['config'],state['specs'],state['checkpoint'],'cpu',step=start)
     next(iter(separate_opt.state.values()))['exp_avg'].add_(1)
     need(fingerprint((state['checkpoint']['after'],state['checkpoint']['optimizer']))==original,
          'ADAPTATION_INITIAL_MOMENT_ALIAS')
+    if state['retained'] is not None:
+        decoder=state['retained']['decoder'];exported,actual=decoder.export_continuation()
+        need(actual==start and fingerprint(exported)==fingerprint(state['checkpoint']),'ADAPTATION_EXPORT_IDENTITY')
+        next(iter(exported['optimizer']['state'].values()))['exp_avg'].add_(1)
+        decoder.fresh()
+        need(fingerprint(decoder.export_continuation()[0])==fingerprint(state['checkpoint']),'ADAPTATION_EXPORT_ALIAS')
+        saved=decoder._continuation
+        try:
+            decoder._continuation=deepcopy(saved);decoder._continuation['step']+=1
+            out['retained_state_mutation']=rejected(decoder.export_continuation,'TRAINED_DECODER_CONTINUATION_CHANGED')
+            decoder._continuation=None
+            out['export_without_retention']=rejected(decoder.export_continuation,'TRAINED_DECODER_CONTINUATION_NOT_RETAINED')
+        finally:decoder._continuation=saved
+        decoder.fresh()
     return out
 
 
@@ -128,17 +144,22 @@ def run(a):
     a.output.mkdir(exist_ok=False);began=tick=time.perf_counter();cpu0=time.process_time()
     torch.set_num_threads(1);torch.set_num_interop_threads(1);torch.use_deterministic_algorithms(True)
     (a.output/'nvidia-before.txt').write_text(subprocess.check_output(['nvidia-smi'],text=True))
-    state=source.load(a.root);phases=dict(authentication=time.perf_counter()-tick);tick=time.perf_counter()
-    traces,weights=source.predictions(state);persist(a.output/'train-predictions.pt',traces)
+    state=source.load(a.root,trained_decoder=a.trained_decoder);phases=dict(authentication=time.perf_counter()-tick);tick=time.perf_counter()
+    if a.trained_decoder:
+        traces,weights=source.retained_predictions(state)
+        with (a.output/'train-predictions.pt').open('xb') as f:
+            f.write(Path(state['prediction_reuse']['path']).read_bytes());f.flush();os.fsync(f.fileno())
+    else:
+        traces,weights=source.predictions(state);persist(a.output/'train-predictions.pt',traces)
     state['trace_pin']=file_sha(a.output/'train-predictions.pt')
     groups,receipts=source.assemble(state,traces,state['trace_pin'])
     write_committed(a.output/'pairs.json',receipts);write_committed(a.output/'predictors.json',weights)
     persist(a.output/'initial.pt',dict(after=state['checkpoint']['after'],optimizer=state['checkpoint']['optimizer']))
     phases['TRAIN_predictions_and_all_source_joins']=time.perf_counter()-tick;tick=time.perf_counter()
-    initial,_=adaptation.continuation(state['config'],state['specs'],state['checkpoint'],'cpu',step=1)
-    initial_scores={};cache={};summary={};evaluation=a.output/'evaluation';evaluation.mkdir()
+    initial,_=adaptation.continuation(state['config'],state['specs'],state['checkpoint'],'cpu',step=state['initial_step'])
+    cache={};summary={};evaluation=a.output/'evaluation';evaluation.mkdir()
     for key,group in groups.items():
-        values=scored(initial,group,true_cache=cache);initial_scores[key]=values
+        values=scored(initial,group,true_cache=cache)
         persist(evaluation/('initial-'+key.replace('/','--')+'.pt'),values)
         summary[key]=dict(initial=summarize(values))
     phases['initial_evaluation']=time.perf_counter()-tick;tick=time.perf_counter()
@@ -157,7 +178,7 @@ def run(a):
         print(json.dumps(dict(proposal=key,updates=arms[key]['updates'],summary=summary[key])),flush=True)
     tick=time.perf_counter();negative=controls(state,groups,traces);state['fresh']()
     latest=dict(after=cpu(model.state_dict()),optimizer=cpu(opt.state_dict()))
-    later,later_opt=adaptation.continuation(state['config'],state['specs'],latest,'cpu',step=3)
+    later,later_opt=adaptation.continuation(state['config'],state['specs'],latest,'cpu',step=state['initial_step']+2)
     need(fingerprint((later.state_dict(),later_opt.state_dict()))==fingerprint((model.state_dict(),opt.state_dict())),
          'ADAPTATION_LATER_CONTINUATION')
     need(not torch.cuda.is_initialized(),'ADAPTATION_CPU_PROOF_GPU')
@@ -167,6 +188,8 @@ def run(a):
     need(.9<=sum(phases.values())/seconds<=1.001,'ADAPTATION_PHASE_COVERAGE')
     result=dict(complete=True,acceptance='author-checked',number_status='measured',code=state['code'],files=files,
         source=source.REFS,trace_pin=state['trace_pin'],baseline_key=baseline_key,baseline=baseline,arms=arms,
+        trained_decoder=a.trained_decoder,initial_step=state['initial_step'],initial_decoder=state['decoder_receipt'],
+        prediction_reuse=state.get('prediction_reuse'),
         training_documents=source.TRAIN,evaluation_documents=source.EVALUATION,train_error_scope='in_sample',
         total_updates=baseline['updates']+sum(v['updates'] for v in arms.values()),
         total_positions=baseline['positions']+sum(v['positions'] for v in arms.values()),
@@ -180,4 +203,9 @@ def run(a):
 
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=source.authority.ROOT)
-    p.add_argument('--output',type=Path,required=True);run(p.parse_args())
+    p.add_argument('--output',type=Path,required=True);p.add_argument('--trained-decoder',action='store_true')
+    a=p.parse_args()
+    try:run(a)
+    except BaseException as error:
+        if a.output.exists():write_committed(a.output/'failure.json',dict(error=repr(error)))
+        raise

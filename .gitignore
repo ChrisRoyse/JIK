@@ -19,8 +19,9 @@
 /.claude/*
 !/.claude/agents/
 !/.claude/commands/
-!/.claude/settings.json
 !/.claude/loop.md
+/.claude/settings*.json
+/docs/
 
 # Data, evidence and caches never enter git. Workstation data root is
 # D:\MNLMData; aiwonder data roots are /zfs/hot/mnlm and /zfs/archive/mnlm.

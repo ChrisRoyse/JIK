@@ -71,7 +71,7 @@ def initial(state):
     model=StreamSurfaceDecoder(state['config'],state['specs'])
     model.load_state_dict(state['checkpoint']['after'],strict=True)
     optimizer=torch.optim.AdamW(model.parameters(),lr=1e-4,foreach=False)
-    optimizer.load_state_dict(deepcopy(state['checkpoint']['optimizer']));inversion.check_state(model,optimizer,1)
+    optimizer.load_state_dict(deepcopy(state['checkpoint']['optimizer']));inversion.check_state(model,optimizer,state['initial_step'])
     return model,optimizer
 
 
@@ -105,31 +105,31 @@ def replay_predictions(state,traces):
 
 def fit(state,group,key,path,trace_pin,*,predicted):
     records=torch.load(path/'updates.pt',map_location='cpu',weights_only=True)
-    refs=json.loads((path/'checkpoints.json').read_bytes());model,opt=initial(state)
+    refs=json.loads((path/'checkpoints.json').read_bytes());model,opt=initial(state);start=state['initial_step']
     binding=dict(code=state['code'],source=trace_pin,predictor=key,
         initial=fingerprint((state['checkpoint']['after'],state['checkpoint']['optimizer'])),train=source.TRAIN,
         rule='half_true_half_predicted' if predicted else 'two_true_views',policy=inversion.POLICY,
-        scope='CPU_engineering_qualification')
+        scope='CPU_engineering_qualification',initial_step=start,decoder=state['decoder_receipt'])
     need(canonical(binding)==canonical(json.loads((path/'binding.json').read_bytes())),'ADAPTATION_COLD_BINDING')
     ledger=digest(canonical(binding));positions=0
     need(len(records)==len(refs)==2,'ADAPTATION_COLD_UPDATE_COUNT')
     for cursor,doc in enumerate(source.TRAIN):
         pairs=group[doc];examples=[]
         for pair in pairs:examples.extend([pair.observed,pair.predicted if predicted else pair.observed])
-        row,_=inversion.update(model,opt,examples,cursor+1)
+        row,_=inversion.update(model,opt,examples,start+cursor)
         row['conditioning']=dict(rule=binding['rule'],pairs=[p.seal for p in pairs],unique_targets=len(pairs))
         need(fingerprint(row)==fingerprint(records[cursor]['update']),'ADAPTATION_COLD_GRADIENT_UPDATE')
         ledger=digest(canonical(dict(previous=ledger,row=row)));ref=refs[cursor]
         need(file_sha(ref['path'])==ref['pin'],'ADAPTATION_COLD_CHECKPOINT_FILE')
         saved=torch.load(ref['path'],map_location='cpu',weights_only=True)
-        need(fingerprint(saved)==ref['state'] and saved['binding']==binding and saved['step']==cursor+2
+        need(fingerprint(saved)==ref['state'] and saved['binding']==binding and saved['step']==start+cursor+1
              and saved['cursor']==cursor+1 and saved['ledger']==ledger
              and fingerprint(saved['model'])==fingerprint(model.state_dict())
              and fingerprint(saved['optimizer'])==fingerprint(opt.state_dict()),'ADAPTATION_COLD_CHECKPOINT')
         positions+=row['positions']
         if cursor==0:
             model,opt=initial(state);pos,step,chain=inversion.restore(ref,model,opt,binding,size=2)
-            need((pos,step,chain)==(1,2,ledger),'ADAPTATION_COLD_RESTART')
+            need((pos,step,chain)==(1,start+1,ledger),'ADAPTATION_COLD_RESTART')
     return model,positions
 
 
@@ -164,7 +164,9 @@ def run(a):
     need(file_sha(a.source/'report.json')==a.pin,'ADAPTATION_COLD_PIN')
     report=json.loads((a.source/'report.json').read_bytes())
     for n,h in report['files'].items():need(file_sha(a.source/n)==h,'ADAPTATION_COLD_FILE')
-    state=source.load(a.root);need(state['code']==report['code'],'ADAPTATION_COLD_CODE')
+    state=source.load(a.root,trained_decoder=report['trained_decoder']);need(state['code']==report['code'],'ADAPTATION_COLD_CODE')
+    need(state['initial_step']==report['initial_step'] and state['decoder_receipt']==report['initial_decoder'],
+         'ADAPTATION_COLD_INITIAL_AUTHORITY')
     saved_initial=torch.load(a.source/'initial.pt',map_location='cpu',weights_only=True)
     need(fingerprint(saved_initial)==fingerprint(dict(after=state['checkpoint']['after'],
          optimizer=state['checkpoint']['optimizer'])),'ADAPTATION_COLD_INITIAL')
@@ -172,7 +174,13 @@ def run(a):
     need(file_sha(a.source/'train-predictions.pt')==report['trace_pin'],'ADAPTATION_COLD_TRACE_PIN')
     receipts=json.loads((a.source/'pairs.json').read_bytes());groups=rebuild(state,traces,report['trace_pin'],receipts)
     phases['authentication_and_independent_joins']=time.perf_counter()-tick;tick=time.perf_counter()
-    decisions=replay_predictions(state,traces);phases['independent_TRAIN_rollouts']=time.perf_counter()-tick;tick=time.perf_counter()
+    if report['prediction_reuse'] is not None:
+        reused,_=source.retained_predictions(state)
+        need(state['prediction_reuse']==report['prediction_reuse'] and fingerprint(reused)==fingerprint(traces),
+             'ADAPTATION_COLD_RETAINED_TRACE')
+        decisions=sum(len(r['events']) for r in traces)
+    else:decisions=replay_predictions(state,traces)
+    phases['TRAIN_trace_authentication_or_replay']=time.perf_counter()-tick;tick=time.perf_counter()
     positions=0;models={};key=report['baseline_key']
     model,count=fit(state,groups[key],key,a.source/'observed',report['trace_pin'],predicted=False)
     positions+=count;models['observed']=model
@@ -205,6 +213,8 @@ def run(a):
         all_predictor_outputs_exact=True,all_native_source_pairs_exact=True,all_updates_exact=True,
         all_checkpoints_and_moments_exact=True,all_evaluation_and_free_outputs_exact=True,
         updates=18,positions=positions,predictor_decisions=decisions,evaluation_cells=checked,controls=negatives,
+        initial_step=state['initial_step'],trained_decoder=report['trained_decoder'],
+        predictor_outputs_replayed=report['prediction_reuse'] is None,prediction_reuse=report['prediction_reuse'],
         phases=phases,seconds=time.perf_counter()-began,peak_rss=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024,
         acceptance='author-checked',number_status='measured',scientific_admission=False,capability_demonstrated=False)
     pin=write_committed(a.output/'report.json',result);print(json.dumps(dict(complete=True,pin=pin,seconds=result['seconds'])),flush=True)
@@ -213,4 +223,8 @@ def run(a):
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=source.authority.ROOT)
     p.add_argument('--source',type=Path,required=True);p.add_argument('--pin',required=True)
-    p.add_argument('--output',type=Path,required=True);run(p.parse_args())
+    p.add_argument('--output',type=Path,required=True);a=p.parse_args()
+    try:run(a)
+    except BaseException as error:
+        if a.output.exists():write_committed(a.output/'failure.json',dict(error=repr(error)))
+        raise
